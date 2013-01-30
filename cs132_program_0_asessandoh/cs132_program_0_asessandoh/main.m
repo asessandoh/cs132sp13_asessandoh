@@ -13,7 +13,27 @@
 int main(void)
 {
     
-    @autoreleasepool {}
+    @autoreleasepool {
+    
+        NSMutableArray * words = nil;
+        NSLog(@"%@", words);
+        
+        words = [[NSMutableArray alloc] init];
+        NSLog(@"%@", words);
+        
+        [words addObject:@","];
+        NSLog(@"%@", words);
+                
+        [words addObject:@"Hello"];
+        NSLog(@"%@", words);
+        
+        [words addObject:@"World"];
+        NSLog(@"%@", words);
+    
+        [words sortUsingSelector: @selector(localizedCaseInsensitiveCompare:)];
+        NSLog(@"%@", words);
+        
+    }
     return EXIT_SUCCESS;
     
 }
