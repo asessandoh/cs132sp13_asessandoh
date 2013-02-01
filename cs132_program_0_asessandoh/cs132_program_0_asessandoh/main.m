@@ -14,24 +14,39 @@ int main(void)
 {
     
     @autoreleasepool {
-    
+        
+        //part C
         NSMutableArray * words = nil;
-        NSLog(@"%@", words);
+        NSLog(@" uninitialized : %@", words);
         
         words = [[NSMutableArray alloc] init];
-        NSLog(@"%@", words);
+        NSLog(@"initialized : %@", words);
         
         [words addObject:@","];
-        NSLog(@"%@", words);
-                
+        NSLog(@" one added : %@", words);
+        
         [words addObject:@"Hello"];
-        NSLog(@"%@", words);
+        NSLog(@" two added %@", words);
         
         [words addObject:@"World"];
-        NSLog(@"%@", words);
-    
+        NSLog(@" all added %@", words);
+        
         [words sortUsingSelector: @selector(localizedCaseInsensitiveCompare:)];
-        NSLog(@"%@", words);
+        NSLog(@" LocalizedcaseInsensitiveCompare : %@", words);
+        
+        //part D
+        
+        NSMutableString * word = nil;
+        NSLog(@" uninitialized %@", word);
+        
+        word = [[NSMutableString alloc]initWithString:[words objectAtIndex:0]];
+         NSLog(@" initialized %@", word);
+        
+        [word appendString:[words objectAtIndex:2]];
+         NSLog(@"Post append %@", word);
+        
+        [word insertString:[words objectAtIndex:1] atIndex:0];
+         NSLog(@"Post reformat %@", word);
         
     }
     return EXIT_SUCCESS;
