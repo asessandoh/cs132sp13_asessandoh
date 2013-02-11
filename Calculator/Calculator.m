@@ -1,3 +1,4 @@
+
 #import "Calculator.h"
 
 @implementation Calculator
@@ -17,7 +18,19 @@
 }
 -(void) pressKey: (char ) pressKey
 {
+    
     NSLog(@"STUB response to '%@' message received by object at %p (%@)", NSStringFromSelector(_cmd), self, self);
+    
+    int thisnum;
+    int newdigit;
+    thisnum = [ self numberOnScreen];
+    newdigit = thisnum - '0';
+    [ self setNumberOnScreen: thisnum *10 + newdigit];
+    
+    
+    
+    
+    
     return;
 }
 

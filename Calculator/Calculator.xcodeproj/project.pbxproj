@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA76691B16C92D630038EB0C /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6EAC816BC04560078E36D /* Calculator.m */; };
 		E9A6EA8A16BC03970078E36D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A6EA8916BC03970078E36D /* Cocoa.framework */; };
 		E9A6EA9416BC03970078E36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9A6EA9216BC03970078E36D /* InfoPlist.strings */; };
 		E9A6EA9616BC03970078E36D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6EA9516BC03970078E36D /* main.m */; };
@@ -17,7 +18,6 @@
 		E9A6EAA916BC03970078E36D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A6EA8916BC03970078E36D /* Cocoa.framework */; };
 		E9A6EAB116BC03970078E36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9A6EAAF16BC03970078E36D /* InfoPlist.strings */; };
 		E9A6EAC516BC043B0078E36D /* CalculatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6EAC316BC043B0078E36D /* CalculatorTest.m */; };
-		E9A6EAC916BC04560078E36D /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6EAC816BC04560078E36D /* Calculator.m */; };
 		E9A6EACC16BC04B20078E36D /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A6EACA16BC04B20078E36D /* OCHamcrest.framework */; };
 		E9A6EACD16BC04B20078E36D /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A6EACB16BC04B20078E36D /* OCMockito.framework */; };
 		E9A6EACF16BC04C00078E36D /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9A6EACA16BC04B20078E36D /* OCHamcrest.framework */; };
@@ -308,7 +308,6 @@
 			files = (
 				E9A6EA9616BC03970078E36D /* main.m in Sources */,
 				E9A6EA9D16BC03970078E36D /* P1AppDelegate.m in Sources */,
-				E9A6EAC916BC04560078E36D /* Calculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A6EAC516BC043B0078E36D /* CalculatorTest.m in Sources */,
+				BA76691B16C92D630038EB0C /* Calculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
