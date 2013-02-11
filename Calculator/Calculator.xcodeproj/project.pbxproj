@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA76691B16C92D630038EB0C /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6EAC816BC04560078E36D /* Calculator.m */; };
+		BA91117D16C95E1A009E5081 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6EAC816BC04560078E36D /* Calculator.m */; };
 		E9A6EA8A16BC03970078E36D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A6EA8916BC03970078E36D /* Cocoa.framework */; };
 		E9A6EA9416BC03970078E36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9A6EA9216BC03970078E36D /* InfoPlist.strings */; };
 		E9A6EA9616BC03970078E36D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6EA9516BC03970078E36D /* main.m */; };
@@ -306,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA91117D16C95E1A009E5081 /* Calculator.m in Sources */,
 				E9A6EA9616BC03970078E36D /* main.m in Sources */,
 				E9A6EA9D16BC03970078E36D /* P1AppDelegate.m in Sources */,
 			);
@@ -316,7 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A6EAC516BC043B0078E36D /* CalculatorTest.m in Sources */,
-				BA76691B16C92D630038EB0C /* Calculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
