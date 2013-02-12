@@ -18,19 +18,21 @@
 }
 -(void) pressKey: (char ) pressKey
 {
-    
-    int nos;
-    int newdigit;
-    nos = [ self numberOnScreen];
-    newdigit = pressKey - '0';
-    [ self setNumberOnScreen: nos *10 + newdigit];
-    
-    
-    NSLog(@"STUB response to '%@' message received by object at %p (%@)", NSStringFromSelector(_cmd), self, self);
-    
-    
+    if (pressKey >= '0' && pressKey <= '9'){
+        int nos;
+        int newdigit;
+        nos = [ self numberOnScreen];
+        newdigit = pressKey - '0';
+        [ self setNumberOnScreen: nos *10 + newdigit];
+    }
+    else if(pressKey == 'c' || pressKey == 'C') {
+        [self setNumberOnScreen:0];
+    }else{
+        
+        NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)", pressKey, NSStringFromSelector(_cmd), self, self);
     
     return;
+    }
 }
 
 
