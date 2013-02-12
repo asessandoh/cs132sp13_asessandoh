@@ -19,15 +19,14 @@
 -(void) pressKey: (char ) pressKey
 {
     
-    NSLog(@"STUB response to '%@' message received by object at %p (%@)", NSStringFromSelector(_cmd), self, self);
-    
-    int thisnum;
+    int nos;
     int newdigit;
-    thisnum = [ self numberOnScreen];
-    newdigit = thisnum - '0';
-    [ self setNumberOnScreen: thisnum *10 + newdigit];
+    nos = [ self numberOnScreen];
+    newdigit = pressKey - '0';
+    [ self setNumberOnScreen: nos *10 + newdigit];
     
     
+    NSLog(@"STUB response to '%@' message received by object at %p (%@)", NSStringFromSelector(_cmd), self, self);
     
     
     
