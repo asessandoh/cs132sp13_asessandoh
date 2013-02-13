@@ -23,6 +23,7 @@
         
     }
     else if(pressKey == 'c' || pressKey == 'C') {
+    else if(isClearScreenKey(pressKey)) {
         [self setNumberOnScreen:0];
     }else{
         
@@ -44,4 +45,9 @@ BOOL isADigit(char Digit)
     if( Digit > '9') return NO;
     if( Digit < '0') return NO;
     return YES;
+BOOL isClearScreenKey(char Clear)
+{
+    if(Clear == 'c') return YES;
+    if(Clear == 'C') return YES;
+    return NO;
 }

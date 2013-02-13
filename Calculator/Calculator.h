@@ -11,3 +11,4 @@
 
 @end
 BOOL isADigit(char Digit);
+BOOL isClearScreenKey(char Clear);
