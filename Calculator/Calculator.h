@@ -8,6 +8,7 @@
 
 -(void) pressKey: (char) pressKey;
 
+-(void) appendDigit: (char) NewDigit;
 
 @end
 BOOL isADigit(char Digit);

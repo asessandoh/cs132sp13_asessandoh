@@ -21,6 +21,7 @@
 
     if (isADigit(pressKey)){
         
+        [self appendDigit:pressKey];
     }
     else if(pressKey == 'c' || pressKey == 'C') {
     else if(isClearScreenKey(pressKey)) {
@@ -31,6 +32,10 @@
     
     return;
     }
+}
+-(void) appendDigit:(char)NewDigit
+{
+    numberOnScreen = (numberOnScreen *10 + NewDigit - '0');
 }
 
 
