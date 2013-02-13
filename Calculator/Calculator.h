@@ -10,3 +10,4 @@
 
 
 @end
+BOOL isADigit(char Digit);

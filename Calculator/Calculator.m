@@ -18,12 +18,9 @@
 }
 -(void) pressKey: (char ) pressKey
 {
-    if (pressKey >= '0' && pressKey <= '9'){
-        int nos;
-        int newdigit;
-        nos = [ self numberOnScreen];
-        newdigit = pressKey - '0';
-        [ self setNumberOnScreen: nos *10 + newdigit];
+
+    if (isADigit(pressKey)){
+        
     }
     else if(pressKey == 'c' || pressKey == 'C') {
         [self setNumberOnScreen:0];
@@ -42,3 +39,9 @@
     return [NSString stringWithFormat:@"Calculator with %d on screen.", numberOnScreen];
 }
 @end
+BOOL isADigit(char Digit)
+{
+    if( Digit > '9') return NO;
+    if( Digit < '0') return NO;
+    return YES;
+}
