@@ -7,10 +7,13 @@
 @property (assign) char operationPending;
 
 -(void) pressKey: (char) pressKey;
-
 -(void) appendDigit: (char) NewDigit;
-
 -(void) clearscreen: (char) clearscreen;
 @end
+
+//function declaration
+
 BOOL isADigit(char Digit);
 BOOL isClearScreenKey(char Clear);
+
+

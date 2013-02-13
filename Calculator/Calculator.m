@@ -3,9 +3,9 @@
 
 @implementation Calculator
 
-@synthesize numberAccumulated;
-@synthesize numberOnScreen;
-@synthesize operationPending;
+@synthesize numberAccumulated = _DNU_numberAccumulated;
+@synthesize numberOnScreen = _DNU_numberOnScreen;
+@synthesize operationPending = _DNU_operationPending ;
 
 - (id)init
 {
@@ -13,6 +13,11 @@
     if (self)
     {
         //Set up initial calculator conditions here
+        
+        _DNU_numberAccumulated = 0;
+        _DNU_numberOnScreen = 0;
+        _DNU_operationPending = '+';
+        
     }
     return self;
 }
@@ -22,11 +27,12 @@
     if (isADigit(pressKey)){
         
         [self appendDigit:pressKey];
+        
     }
-    else if(pressKey == 'c' || pressKey == 'C') {
     else if(isClearScreenKey(pressKey)) {
-        [self setNumberOnScreen:0];
+        
         [self clearscreen:pressKey];
+        
     }else{
         
         NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)", pressKey, NSStringFromSelector(_cmd), self, self);
@@ -36,7 +42,7 @@
 }
 -(void) appendDigit:(char)NewDigit
 {
-    numberOnScreen = (numberOnScreen *10 + NewDigit - '0');
+    _DNU_numberOnScreen = (_DNU_numberOnScreen *10 + NewDigit - '0');
 }
 
 -(void) clearscreen: (char) clearscreen
@@ -44,17 +50,44 @@
    [self setNumberOnScreen:0]; 
 }
 
+/*
+-(void)computeAmdDisplayResult
+{
+    char operator
+    int lhs
+    int rhs
+    int result
+    rhs = [self numberOnScreen];
+    lhs = [self numberAccumulated];
+    operator = [self operationPending];
+    switch(operator)
+    {
+        case: '+':
+            break;
+        case: '-':
+            result = lhs - rhs;
+            break;
+        case: '*':
+            break;
+    }
+    numberOnScreen = result;
+}
+*/
+
 
 -(NSString*) description
 {
-    return [NSString stringWithFormat:@"Calculator with %d on screen.", numberOnScreen];
+    return [NSString stringWithFormat:@"Calculator with %d on screen.", _DNU_numberOnScreen ];
 }
 @end
+
 BOOL isADigit(char Digit)
 {
     if( Digit > '9') return NO;
     if( Digit < '0') return NO;
     return YES;
+}
+
 BOOL isClearScreenKey(char Clear)
 {
     if(Clear == 'c') return YES;
