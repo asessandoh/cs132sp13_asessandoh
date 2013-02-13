@@ -26,6 +26,7 @@
     else if(pressKey == 'c' || pressKey == 'C') {
     else if(isClearScreenKey(pressKey)) {
         [self setNumberOnScreen:0];
+        [self clearscreen:pressKey];
     }else{
         
         NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)", pressKey, NSStringFromSelector(_cmd), self, self);
@@ -38,6 +39,10 @@
     numberOnScreen = (numberOnScreen *10 + NewDigit - '0');
 }
 
+-(void) clearscreen: (char) clearscreen
+{
+   [self setNumberOnScreen:0]; 
+}
 
 
 -(NSString*) description

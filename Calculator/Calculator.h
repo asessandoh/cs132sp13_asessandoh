@@ -10,6 +10,7 @@
 
 -(void) appendDigit: (char) NewDigit;
 
+-(void) clearscreen: (char) clearscreen;
 @end
 BOOL isADigit(char Digit);
 BOOL isClearScreenKey(char Clear);
