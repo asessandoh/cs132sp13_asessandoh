@@ -11,6 +11,7 @@
 -(void) clearscreen: (char) clearscreen;
 -(void) clearallkey: (char) clearallkey;
 -(void) resultkey: (char) resultkey;
+-(void) arithmeticallkey: (char) arithmetickey;
 @end
 
 //function declaration
@@ -19,3 +20,4 @@ BOOL isADigit(char Digit);
 BOOL isClearScreenKey(char Clear);
 BOOL isclearallkey( char clearall);
 BOOL isresultkey(char result);
+BOOL isarithmeticallkey(char arithmetickey);

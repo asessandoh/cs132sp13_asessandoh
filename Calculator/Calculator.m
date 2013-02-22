@@ -39,8 +39,13 @@
         [self resultkey:pressKey];
         
     }
-    else if (isclearallkey(pressKey)) 
-    {
+    else if(isarithmeticallkey(pressKey)) {
+        
+        [self arithmeticallkey:pressKey];
+        
+    }
+    else if (isclearallkey(pressKey)) {
+        
         [self clearallkey:(pressKey)];
         
     }else{
@@ -118,7 +123,15 @@ BOOL isresultkey( char result)
     return NO;
 }
 
-
+BOOL isarithmeticallkey( char arithmetickey)
+{
+    if(arithmetickey == '+') return YES;
+    if(arithmetickey == '-') return YES;
+    if(arithmetickey == '/') return YES;
+    if(arithmetickey == '%') return YES;
+    if(arithmetickey == '*') return YES;
+    return NO;
+}
 
 
 
