@@ -5,7 +5,7 @@
 
 @synthesize numberAccumulated = _DNU_numberAccumulated;
 @synthesize numberOnScreen = _DNU_numberOnScreen;
-@synthesize operationPending = _DNU_operationPending ;
+@synthesize OperationPending = _DNU_OperationPending ;
 
 - (id)init
 {
@@ -16,7 +16,7 @@
         
         _DNU_numberAccumulated = 0;
         _DNU_numberOnScreen = 0;
-        _DNU_operationPending = '+';
+        _DNU_OperationPending = '+';
         
     }
     return self;
@@ -32,6 +32,16 @@
     else if(isClearScreenKey(pressKey)) {
         
         [self clearscreen:pressKey];
+        
+    }
+    else if(isclearaccumulator(pressKey)){
+        
+        [self clearaccumulator:pressKey];
+        
+    }
+    else if(isclearoperation(pressKey)){
+        
+        [self clearoperation:pressKey];
         
     }
     else if(isresultkey(pressKey)) {
@@ -65,6 +75,16 @@
    [self setNumberOnScreen:0]; 
 }
 
+-(void) clearaccumulator:(char)clearaccumulator
+{
+    [self setNumberAccumulated:0];
+}
+
+-(void) clearoperation:(char)clearoperation
+{
+    [self setOperationPending:'?'];
+}
+
 -(void) registerarithmetic: (char) theoperator
 {
     [ self setNumberAccumulated:_DNU_numberOnScreen];
@@ -82,7 +102,7 @@
     int result;
     rhs = [self numberOnScreen];
     lhs = [self numberAccumulated];
-    op = [self operationPending];
+    op = [self OperationPending];
     switch(op)
     {
         case '+':
@@ -100,6 +120,9 @@
         case '/':
             result= lhs / rhs;
             break;
+            
+            case '%':
+            result= lhs%rhs;
             
             default:
             result = rhs;
@@ -133,6 +156,21 @@ BOOL isClearScreenKey(char Clear)
     if(Clear == 'C') return YES;
     return NO;
 }
+
+BOOL isclearaccumulator(char clearaccumalator)
+{
+    if(clearaccumalator == 'c') return YES;
+    if(clearaccumalator == 'C') return YES;
+    return NO;
+}
+
+BOOL isclearoperation(char clearoperation)
+{
+    if(clearoperation == 'c') return YES;
+    if(clearoperation == 'C') return YES;
+    return NO;
+}
+
 
 BOOL isclearallkey( char clearall)
 {

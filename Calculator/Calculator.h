@@ -4,7 +4,7 @@
 
 @property (assign) int numberOnScreen;
 @property (assign) int numberAccumulated;
-@property (assign) char operationPending;
+@property (assign) char OperationPending;
 
 -(void) pressKey: (char) pressKey;
 -(void) appendDigit: (char) NewDigit;
@@ -14,6 +14,7 @@
 -(void) arithmeticallkey: (char) arithmetickey;
 -(void) registerarithmetic: (char) theoperator;
 -(void) clearaccumulator: (char) clearaccumulator;
+-(void) clearoperation: (char) clearoperation;
 @end
 
 //function declaration
@@ -23,4 +24,5 @@ BOOL isClearScreenKey(char Clear);
 BOOL isclearallkey( char clearall);
 BOOL isresultkey(char result);
 BOOL isarithmeticallkey(char arithmetickey);
-BOOL inclearaccumulator(char clearaccumulator);
+BOOL isclearaccumulator(char clearaccumulator);
+BOOL isclearoperation(char clearoperation);
