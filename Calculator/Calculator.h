@@ -13,6 +13,7 @@
 -(void) resultkey: (char) resultkey;
 -(void) arithmeticallkey: (char) arithmetickey;
 -(void) registerarithmetic: (char) theoperator;
+-(void) clearaccumulator: (char) clearaccumulator;
 @end
 
 //function declaration
@@ -22,3 +23,4 @@ BOOL isClearScreenKey(char Clear);
 BOOL isclearallkey( char clearall);
 BOOL isresultkey(char result);
 BOOL isarithmeticallkey(char arithmetickey);
+BOOL inclearaccumulator(char clearaccumulator);

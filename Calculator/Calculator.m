@@ -73,32 +73,45 @@
     
     [self setOperationPending:theoperator];
 }
-/*
+
 -(void)ComputeAndDisplayResult
 {
-    char op
-    int lhs
-    int rhs
-    int result
+    char op;
+    int lhs;
+    int rhs;
+    int result;
     rhs = [self numberOnScreen];
     lhs = [self numberAccumulated];
     op = [self operationPending];
-    switch(operator)
+    switch(op)
     {
-        case: '+':
+        case '+':
+             result= lhs + rhs;
             break;
-        case: '-':
+           
+        case '-':
             result = lhs - rhs;
             break;
-        case: '*':
+            
+        case '*':
+            result= lhs * rhs;
             break;
-        case: '/'
+            
+        case '/':
+            result= lhs / rhs;
+            break;
+            
+            default:
+            result = rhs;
+            break;
     }
-    numberOnScreen = result;
- [self setNumberAccumulated: 0];
- [self setoperationPending: '?'];
+    
+    [self setNumberOnScreen:result];
+    [self setNumberAccumulated: 0];
+    [self setOperationPending:'?'];
+
 }
-*/
+
 
 
 -(NSString*) description
