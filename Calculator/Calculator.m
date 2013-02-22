@@ -33,6 +33,11 @@
         
         [self clearscreen:pressKey];
         
+    }
+    else if (isclearallkey(pressKey))
+    {
+        [self clearallkey:(pressKey)];
+        
     }else{
         
         NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)", pressKey, NSStringFromSelector(_cmd), self, self);
@@ -94,3 +99,22 @@ BOOL isClearScreenKey(char Clear)
     if(Clear == 'C') return YES;
     return NO;
 }
+
+BOOL isclearallkey( char clearall)
+{
+    if(clearall == 'a') return YES;
+    if(clearall == 'A') return YES;
+    return NO;
+}
+
+
+
+
+
+
+
+
+
+
+
+
