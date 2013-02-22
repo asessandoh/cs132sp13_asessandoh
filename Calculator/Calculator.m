@@ -39,7 +39,7 @@
         [self resultkey:pressKey];
         
     }
-    else if (isclearallkey(pressKey))
+    else if (isclearallkey(pressKey)) 
     {
         [self clearallkey:(pressKey)];
         
