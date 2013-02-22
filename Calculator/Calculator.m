@@ -34,6 +34,11 @@
         [self clearscreen:pressKey];
         
     }
+    else if(isresultkey(pressKey)) {
+        
+        [self resultkey:pressKey];
+        
+    }
     else if (isclearallkey(pressKey))
     {
         [self clearallkey:(pressKey)];
@@ -107,7 +112,11 @@ BOOL isclearallkey( char clearall)
     return NO;
 }
 
-
+BOOL isresultkey( char result)
+{
+    if(result == '=') return YES;
+    return NO;
+}
 
 
 
