@@ -3,9 +3,9 @@
 
 @implementation Calculator
 
-@synthesize numberAccumulated = _DNU_numberAccumulated;
-@synthesize numberOnScreen = _DNU_numberOnScreen;
-@synthesize OperationPending = _DNU_OperationPending ;
+@synthesize numberAccumulated = numberAccumulated;
+@synthesize numberOnScreen = numberOnScreen;
+@synthesize OperationPending = OperationPending ;
 
 - (id)init
 {
@@ -14,9 +14,9 @@
     {
         //Set up initial calculator conditions here
         
-        _DNU_numberAccumulated = 0;
-        _DNU_numberOnScreen = 0;
-        _DNU_OperationPending = '+';
+        numberAccumulated = 0;
+        numberOnScreen = 0;
+        OperationPending = '+';
         
     }
     return self;
@@ -67,7 +67,7 @@
 }
 -(void) appendDigit:(char)NewDigit
 {
-    _DNU_numberOnScreen = (_DNU_numberOnScreen *10 + NewDigit - '0');
+    numberOnScreen = (numberOnScreen *10 + NewDigit - '0');
 }
 
 -(void) clearscreen: (char) clearscreen
@@ -87,7 +87,7 @@
 
 -(void) registerarithmetic: (char) theoperator
 {
-    [ self setNumberAccumulated:_DNU_numberOnScreen];
+    [ self setNumberAccumulated:numberOnScreen];
     
     [self setNumberOnScreen:0];
     
@@ -121,10 +121,11 @@
             result= lhs / rhs;
             break;
             
-            case '%':
+        case '%':
             result= lhs%rhs;
+            break;
             
-            default:
+        default :
             result = rhs;
             break;
     }
@@ -139,7 +140,7 @@
 
 -(NSString*) description
 {
-    return [NSString stringWithFormat:@"Calculator with %d on screen.", _DNU_numberOnScreen ];
+    return [NSString stringWithFormat:@"Calculator with %d on screen." , numberOnScreen ];
 }
 @end
 
