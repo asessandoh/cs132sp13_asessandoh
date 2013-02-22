@@ -12,6 +12,7 @@
 -(void) clearallkey: (char) clearallkey;
 -(void) resultkey: (char) resultkey;
 -(void) arithmeticallkey: (char) arithmetickey;
+-(void) registerarithmetic: (char) theoperator;
 @end
 
 //function declaration

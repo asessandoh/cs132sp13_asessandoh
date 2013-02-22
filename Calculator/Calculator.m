@@ -65,16 +65,24 @@
    [self setNumberOnScreen:0]; 
 }
 
-/*
--(void)computeAmdDisplayResult
+-(void) registerarithmetic: (char) theoperator
 {
-    char operator
+    [ self setNumberAccumulated:_DNU_numberOnScreen];
+    
+    [self setNumberOnScreen:0];
+    
+    [self setOperationPending:theoperator];
+}
+/*
+-(void)ComputeAndDisplayResult
+{
+    char op
     int lhs
     int rhs
     int result
     rhs = [self numberOnScreen];
     lhs = [self numberAccumulated];
-    operator = [self operationPending];
+    op = [self operationPending];
     switch(operator)
     {
         case: '+':
@@ -84,8 +92,11 @@
             break;
         case: '*':
             break;
+        case: '/'
     }
     numberOnScreen = result;
+ [self setNumberAccumulated: 0];
+ [self setoperationPending: '?'];
 }
 */
 
