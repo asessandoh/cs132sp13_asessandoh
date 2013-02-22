@@ -3,9 +3,7 @@
 
 @implementation Calculator
 
-@synthesize numberAccumulated = numberAccumulated;
-@synthesize numberOnScreen = numberOnScreen;
-@synthesize OperationPending = OperationPending ;
+
 
 - (id)init
 {
@@ -14,9 +12,9 @@
     {
         //Set up initial calculator conditions here
         
-        numberAccumulated = 0;
-        numberOnScreen = 0;
-        OperationPending = '+';
+        [self clearaccumulator];
+        [self clearscreen];
+        [self clearoperation];
         
     }
     return self;
@@ -31,17 +29,17 @@
     }
     else if(isClearScreenKey(pressKey)) {
         
-        [self clearscreen:pressKey];
+        [self clearscreen];
         
     }
     else if(isclearaccumulator(pressKey)){
         
-        [self clearaccumulator:pressKey];
+        [self clearaccumulator];
         
     }
     else if(isclearoperation(pressKey)){
         
-        [self clearoperation:pressKey];
+        [self clearoperation];
         
     }
     else if(isresultkey(pressKey)) {
@@ -52,6 +50,9 @@
     else if(isarithmeticallkey(pressKey)) {
         
         [self arithmeticallkey:pressKey];
+       // [self setnumberAccumulated: numberOnScreen];
+        //[self numberOnScreen:0];
+        //[self OperationPending ];
         
     }
     else if (isclearallkey(pressKey)) {
@@ -67,29 +68,29 @@
 }
 -(void) appendDigit:(char)NewDigit
 {
-    numberOnScreen = (numberOnScreen *10 + NewDigit - '0');
+    [self setNumberOnScreen:([self numberOnScreen] *10 + NewDigit - '0')];
 }
 
--(void) clearscreen: (char) clearscreen
+-(void) clearscreen
 {
    [self setNumberOnScreen:0]; 
 }
 
--(void) clearaccumulator:(char)clearaccumulator
+-(void) clearaccumulator
 {
     [self setNumberAccumulated:0];
 }
 
--(void) clearoperation:(char)clearoperation
+-(void) clearoperation
 {
     [self setOperationPending:'?'];
 }
 
 -(void) registerarithmetic: (char) theoperator
 {
-    [ self setNumberAccumulated:numberOnScreen];
+    [ self setNumberAccumulated:[self numberOnScreen]];
     
-    [self setNumberOnScreen:0];
+    [self clearscreen];
     
     [self setOperationPending:theoperator];
 }
@@ -102,7 +103,7 @@
     int result;
     rhs = [self numberOnScreen];
     lhs = [self numberAccumulated];
-    op = [self OperationPending];
+    op = [self operationPending];
     switch(op)
     {
         case '+':
@@ -132,15 +133,14 @@
     
     [self setNumberOnScreen:result];
     [self setNumberAccumulated: 0];
-    [self setOperationPending:'?'];
-
+    [self clearoperation];
 }
 
 
 
 -(NSString*) description
 {
-    return [NSString stringWithFormat:@"Calculator with %d on screen." , numberOnScreen ];
+    return [NSString stringWithFormat:@"Calculator with %d on screen." , [self numberOnScreen] ];
 }
 @end
 

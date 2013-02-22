@@ -4,17 +4,17 @@
 
 @property (assign) int numberOnScreen;
 @property (assign) int numberAccumulated;
-@property (assign) char OperationPending;
+@property (assign) char operationPending;
 
 -(void) pressKey: (char) pressKey;
 -(void) appendDigit: (char) NewDigit;
--(void) clearscreen: (char) clearscreen;
+-(void) clearscreen;
 -(void) clearallkey: (char) clearallkey;
 -(void) resultkey: (char) resultkey;
 -(void) arithmeticallkey: (char) arithmetickey;
 -(void) registerarithmetic: (char) theoperator;
--(void) clearaccumulator: (char) clearaccumulator;
--(void) clearoperation: (char) clearoperation;
+-(void) clearaccumulator;
+-(void) clearoperation;
 @end
 
 //function declaration
