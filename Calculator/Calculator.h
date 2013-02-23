@@ -15,6 +15,7 @@
 -(void) registerarithmetic: (char) theoperator;
 -(void) clearaccumulator;
 -(void) clearoperation;
+
 @end
 
 //function declaration
@@ -26,3 +27,4 @@ BOOL isresultkey(char result);
 BOOL isarithmeticallkey(char arithmetickey);
 BOOL isclearaccumulator(char clearaccumulator);
 BOOL isclearoperation(char clearoperation);
+

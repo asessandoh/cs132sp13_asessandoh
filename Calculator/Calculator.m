@@ -50,9 +50,9 @@
     else if(isarithmeticallkey(pressKey)) {
         
         [self arithmeticallkey:pressKey];
-       // [self setnumberAccumulated: numberOnScreen];
-        //[self numberOnScreen:0];
-        //[self OperationPending ];
+        [self setNumberAccumulated:[self numberOnScreen]];
+        [self numberOnScreen];
+        [self setOperationPending:pressKey];
         
     }
     else if (isclearallkey(pressKey)) {
