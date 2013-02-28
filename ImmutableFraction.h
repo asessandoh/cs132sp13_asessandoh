@@ -9,5 +9,10 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ImmutableFraction : NSObject
+@property (assign) int numerator;
+@property (assign) int denominator;
+
+-(void) 
+
 
 @end
