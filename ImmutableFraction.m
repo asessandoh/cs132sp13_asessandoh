@@ -9,5 +9,13 @@
 #import "ImmutableFraction.h"
 
 @implementation ImmutableFraction
+@synthesize numerator;
+@synthesize denominator;
+
+-(id) initWithNumretor:(int) Num;
+        andDenominator:(int) Dem;
+
+-(id) initWithFraction: (Fraction *) Arg;
+
 
 @end

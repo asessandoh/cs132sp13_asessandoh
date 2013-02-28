@@ -12,7 +12,6 @@
 @property (assign) int numerator;
 @property (assign) int denominator;
 
--(void) 
 
 
 @end
