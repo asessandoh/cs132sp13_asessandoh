@@ -26,6 +26,7 @@
         
         [self appendDigit:pressKey];
         
+       
     }
     else if(isClearScreenKey(pressKey)) {
         
@@ -43,21 +44,19 @@
         
     }
     else if(isresultkey(pressKey)) {
-        
-        [self resultkey:pressKey];
+    
+        [self ComputeAndDisplayResult];
         
     }
     else if(isarithmeticallkey(pressKey)) {
         
         [self arithmeticallkey:pressKey];
-        [self setNumberAccumulated:[self numberOnScreen]];
-        [self numberOnScreen];
-        [self setOperationPending:pressKey];
+        [self registerarithmetic:pressKey];
         
     }
     else if (isclearallkey(pressKey)) {
         
-        [self clearallkey:(pressKey)];
+        [self clearallkey];
         
     }else{
         
@@ -76,13 +75,20 @@
    [self setNumberOnScreen:0]; 
 }
 
+-(void)clearallkey
+{
+    [self setNumberAccumulated:0];
+    [self setNumberOnScreen:0];
+    [self setOperationPending:'?'];
+}
+
 -(void) clearaccumulator
 {
     [self setNumberAccumulated:0];
 }
 
 -(void) clearoperation
-{
+{ 
     [self setOperationPending:'?'];
 }
 
@@ -94,6 +100,30 @@
     
     [self setOperationPending:theoperator];
 }
+-(void)resultkey:(char)resultkey
+{
+    [self numberOnScreen];
+}
+-(void)arithmeticallkey:(char)arithmetickey
+{
+    if (arithmetickey == '+') {
+        [self setNumberAccumulated:'+'];
+    }
+    else if (arithmetickey == '-'){
+        [self setNumberAccumulated:'-'];
+    }
+    else if (arithmetickey == '*'){
+        [self setNumberAccumulated:'*'];
+    }
+    else if (arithmetickey == '/'){
+        [self setNumberAccumulated:'/'];
+    }
+    else if (arithmetickey == '%'){
+        [self setNumberAccumulated:'%'];
+    }
+        
+}
+
 
 -(void)ComputeAndDisplayResult
 {
@@ -103,7 +133,7 @@
     int result;
     rhs = [self numberOnScreen];
     lhs = [self numberAccumulated];
-    op = [self operationPending];
+    op =  [self operationPending];
     switch(op)
     {
         case '+':
@@ -132,7 +162,7 @@
     }
     
     [self setNumberOnScreen:result];
-    [self setNumberAccumulated: 0];
+    [self clearaccumulator];
     [self clearoperation];
 }
 

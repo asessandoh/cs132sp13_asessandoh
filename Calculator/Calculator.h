@@ -9,13 +9,13 @@
 -(void) pressKey: (char) pressKey;
 -(void) appendDigit: (char) NewDigit;
 -(void) clearscreen;
--(void) clearallkey: (char) clearallkey;
+-(void) clearallkey;
 -(void) resultkey: (char) resultkey;
 -(void) arithmeticallkey: (char) arithmetickey;
 -(void) registerarithmetic: (char) theoperator;
 -(void) clearaccumulator;
 -(void) clearoperation;
-
+-(void) ComputeAndDisplayResult;
 @end
 
 //function declaration
