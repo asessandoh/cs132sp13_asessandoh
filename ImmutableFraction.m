@@ -34,5 +34,13 @@
     [self release];
     return nil;
 }
+-(void)negative
+{
+    return fraction*;
+}
+-(void)reciprocal
+{
+    return fraction*;
+}
 
 @end

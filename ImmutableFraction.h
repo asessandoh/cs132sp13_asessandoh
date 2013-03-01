@@ -13,7 +13,8 @@
 @property (assign) int denominator;
 
 -(void)Description;
--(void)init;
+-(void)negative;
+-(void)reciprocal;
 
 
 @end
