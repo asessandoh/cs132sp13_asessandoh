@@ -15,6 +15,12 @@
 -(void)Description;
 -(void)negative;
 -(void)reciprocal;
+-(void)sumWith
+-(void)subtractFrom;
+-(void)minus;
+-(void)multiplyBy;
+-(void)divideBy;
+-(void)divideInto;
 
 
 @end

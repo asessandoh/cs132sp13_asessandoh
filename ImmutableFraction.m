@@ -42,5 +42,29 @@
 {
     return fraction*;
 }
+-(void)sumwith: (fraction*) Arg;
+{
+    return fraction*
+}
+-(void)subtractFrom: (fraction*) Arg;
+{
+    return fraction*
+}
+-(void)minnus: (fraction*) Arg;
+{
+    return fraction*
+}
+-(void)multiplyBy: (fraction*) Arg;
+{
+    return fraction*
+}
+-(void)divideBy: (fraction*) Arg;
+{
+    return fraction*
+}
+-(void)divideInto: (fraction*) Arg;
+{
+    return fraction*
+}
 
 @end
