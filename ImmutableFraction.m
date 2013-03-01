@@ -36,35 +36,51 @@
 }
 -(void)negative
 {
-    return fraction*;
+    [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 -(void)reciprocal
 {
-    return fraction*;
+    [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 -(void)sumwith: (fraction*) Arg;
 {
-    return fraction*
+    [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 -(void)subtractFrom: (fraction*) Arg;
 {
-    return fraction*
+    [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 -(void)minnus: (fraction*) Arg;
 {
-    return fraction*
+    [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 -(void)multiplyBy: (fraction*) Arg;
 {
-    return fraction*
+    r [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 -(void)divideBy: (fraction*) Arg;
 {
-    return fraction*
+    [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 -(void)divideInto: (fraction*) Arg;
 {
-    return fraction*
+    [self @Selector:_cmd];
+    [self release];
+    return nil;
 }
 
 @end
