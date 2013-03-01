@@ -18,4 +18,8 @@
 -(id) initWithFraction: (Fraction *) Arg;
 
 
+-(float) floatvalue{
+    return floatvalue 
+}
+
 @end
