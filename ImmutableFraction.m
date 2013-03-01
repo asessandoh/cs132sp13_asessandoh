@@ -21,5 +21,18 @@
 -(float) floatvalue{
     return floatvalue 
 }
+- (id)init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    [self release];
+    return nil;
+}
+
+-(id) Description
+{
+    [self doesNotRecognizeSelector:_cmd];
+    [self release];
+    return nil;
+}
 
 @end
