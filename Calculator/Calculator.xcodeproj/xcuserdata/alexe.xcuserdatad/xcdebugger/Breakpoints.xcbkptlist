@@ -19,7 +19,7 @@
             <BreakpointActionProxy
                ActionType = "Xcode.BreakpointAction.DebuggerCommand">
                <ActionContent
-                  consoleCommand = "po [[NSString alloc] initWithFormat:@&quot;Key: %c&quot;, theKey]">
+                  consoleCommand = "p (int) [[[self numberAccumulated],  operationPending], numberOnScreen]">
                </ActionContent>
             </BreakpointActionProxy>
          </Actions>
