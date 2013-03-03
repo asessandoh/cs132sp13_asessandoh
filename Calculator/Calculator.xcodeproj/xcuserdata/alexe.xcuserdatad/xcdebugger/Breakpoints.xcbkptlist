@@ -19,7 +19,7 @@
             <BreakpointActionProxy
                ActionType = "Xcode.BreakpointAction.DebuggerCommand">
                <ActionContent
-                  consoleCommand = "[[NSString alloc] initWithFormat:@&quot;Key: %c&quot;, theKey]">
+                  consoleCommand = "po [[NSString alloc] initWithFormat:@&quot;Key: %c&quot;, theKey]">
                </ActionContent>
             </BreakpointActionProxy>
          </Actions>
