@@ -6,9 +6,9 @@
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
-         continueAfterRunningActions = "Yes"
+         continueAfterRunningActions = "No"
          filePath = "Calculator.m"
-         timestampString = "384030292.534445"
+         timestampString = "384150868.397117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "67"
@@ -19,7 +19,7 @@
             <BreakpointActionProxy
                ActionType = "Xcode.BreakpointAction.DebuggerCommand">
                <ActionContent
-                  consoleCommand = "p (int) [[[self numberAccumulated],  operationPending], numberOnScreen]">
+                  consoleCommand = "po [[NSString alloc]initWithFormat:@&quot;\t\t\t%d\t%c\t%d\n&quot;,[self numberAccumulated], [self operationPending], [self numberOnScreen]]">
                </ActionContent>
             </BreakpointActionProxy>
          </Actions>
