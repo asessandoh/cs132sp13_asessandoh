@@ -102,7 +102,7 @@
 }
 -(void)resultkey:(char)resultkey
 {
-    [self numberOnScreen];
+    [self numberOnScreen]; 
 }
 -(void)arithmeticallkey:(char)arithmetickey
 {
