@@ -12,15 +12,7 @@
 @synthesize numerator;
 @synthesize denominator;
 
--(id) initWithNumretor:(int) Num;
-        andDenominator:(int) Dem;
 
--(id) initWithFraction: (Fraction *) Arg;
-
-
--(float) floatvalue{
-    return floatvalue 
-}
 - (id)init
 {
     [self doesNotRecognizeSelector:_cmd];
@@ -30,57 +22,82 @@
 
 -(id) Description
 {
-    [self doesNotRecognizeSelector:_cmd];
+    [self doesNotRecognizeSelector:_cmd];// printf("running init method\n);
     [self release];
     return nil;
 }
--(void)negative
+-(fraction*)negative
 {
-    [self @Selector:_cmd];
+    int a = [self numerator];
+    int b = [self denominator];
+    int newNumerator = 0 - a;
+    int newDenominator = 0 - b;
+    fraction* Theresult = [[fraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
+}
+-(fraction*)reciprocal
+{
+    int a = [self numerator];
+    int b = [self denominator];
+    int newNumerator = b;
+    int newDenominator = a;
+    fraction* Theresult = [[fraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
+}
+-(fraction*)sumwith: (fraction*) Arg;
+{
+    [self @Selector:_cmd];// Print...
     [self release];
     return nil;
 }
--(void)reciprocal
+-(fraction*)subtractFrom: (fraction*) Arg;
 {
-    [self @Selector:_cmd];
-    [self release];
-    return nil;
+    return[self add: [negative Arg]];
 }
--(void)sumwith: (fraction*) Arg;
+-(fraction*)minus: (fraction*) Arg;
 {
-    [self @Selector:_cmd];
-    [self release];
-    return nil;
+    fraction* Theresult = [self subtractFrom: Arg];
+    return Theresult;
 }
--(void)subtractFrom: (fraction*) Arg;
+-(fraction*)multiplyBy: (fraction*) Arg;
 {
-    [self @Selector:_cmd];
-    [self release];
-    return nil;
+    int a = [self numerator];
+    int b = [self denominator];
+    int c = [Arg numerator];
+    int d =  [Arg denominator];
+    int newDenominator = a*c;
+    int newNumerator = b*d;
+    fraction* Theresult = [[fraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
 }
--(void)minnus: (fraction*) Arg;
+-(fraction*)divideBy: (fraction*) Arg;
 {
-    [self @Selector:_cmd];
-    [self release];
-    return nil;
+    return[self multiplyBy:[Arg reciprocal]];
+    
 }
--(void)multiplyBy: (fraction*) Arg;
+-(fraction*)divideInto: (fraction*) Arg;
 {
-    r [self @Selector:_cmd];
-    [self release];
-    return nil;
+    return  [Arg multiplyBy: [self reciprocal]];
+    
 }
--(void)divideBy: (fraction*) Arg;
+-(fraction*)reduced (fraction*);
 {
-    [self @Selector:_cmd];
-    [self release];
-    return nil;
-}
--(void)divideInto: (fraction*) Arg;
-{
-    [self @Selector:_cmd];
-    [self release];
-    return nil;
+    int x = [self numerator];
+    int y = [self denominator];
+    int d = GCD ( int x, int y);
+    int newNumerator = x/d;
+    int newDenominator = x/d;
+    fraction* Theresult = [[fraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
+    
+    
 }
 
+
+
 @end
+
+int GCD( int x, int y)
+{
+    //printf
+}
