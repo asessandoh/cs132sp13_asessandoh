@@ -2,259 +2,105 @@
 //  WCSFraction.m
 //  Fraction Development
 //
-//  Created by Alex.E on 3/22/13.
+//  Created by Alex.E on 3/23/13.
 //  Copyright (c) 2013 Wells CS132: Object Oriented Programming. All rights reserved.
 //
 
 #import "WCSFraction.h"
 
-
-// Class under test
-#import "WCSFraction.h"
-
-// Collaborators
-
-// Test support
-#import "SenTestingKit/SenTestingKit.h"
-
-// Comment the next two lines to disable OCHamcrest (for test assertions)
-//#define HC_SHORTHAND
-//#import <OCHamcrest/OCHamcrest.h>
-
-// Comment the next two lines to disable OCMockito (for mock objects)
-//#define MOCKITO_SHORTHAND
-//#import <OCMockito/OCMockito.h>
-
-/**
- @brief For testing Immutable Fractions
- */
-
-@interface TestFraction : SenTestCase
-@end
-
 @implementation WCSFraction
+
+
+@synthesize numerator;
+@synthesize denominator;
+
+
+-(id)init
 {
-    WCSFraction* frac_one;
-    WCSFraction* frac_zero;
-    WCSFraction* frac_two;
-    WCSFraction* result;
-    WCSFraction* target;
-    WCSFraction* LHS;
-    WCSFraction* RHS;
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
-- (void)setUp
+-(id) Description
 {
-    [super setUp];
-    frac_two = [[WCSFraction alloc] initWithInteger:2];
-    frac_one = [[WCSFraction alloc] initWithInteger:1];
-    frac_zero = [[WCSFraction alloc] initWithInteger:0];
+    printf("running init method\n");
+    
+    return NULL ;
 }
-
-- (void)tearDown
+-(WCSFraction*)negative
 {
-    frac_zero = nil;
-    frac_one = nil;
-    frac_two = nil;
-    result = nil;
-    target = nil;
-    LHS = nil;
-    RHS = nil;
-    [super tearDown];
+    int a = [self numerator];
+    int b = [self denominator];
+    int newNumerator = 0 - a;
+    int newDenominator = 0 - b;
+    WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
 }
-
-- (void)testBareFractionShouldExist
+-(WCSFraction*)reciprocal
 {
-    // given
-    result = [[WCSFraction alloc] init];
-    // then
-    assertThat(result, isNot(equalTo(nil)));
+    int a = [self numerator];
+    int b = [self denominator];
+    int newNumerator = b;
+    int newDenominator = a;
+    WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
+}
+-(WCSFraction*)sumwith: (WCSFraction*) Arg;
+{
     
 }
-- (void)testBareFractionShouldBeOne
+-(WCSFraction*)subtractFrom: (WCSFraction*) Arg;
 {
-    // given
-    result = [[WCSFraction alloc] init];
-    // then
-    assertThat(result, is(equalTo(frac_one)));
+    return[self add: [Arg negative]];
 }
--(void)testIntCreationMatchesComponentCreation
+-(WCSFraction*)minus: (WCSFraction*) Arg;
 {
-    //given
-    result = [[WCSFraction alloc] initWithNumerator:2 andDenominator:1];
-    target = [[WCSFraction alloc] initWithInteger:2];
-    // then
-    assertThat(result, is(equalTo(target)));
+    WCSFraction* Theresult = [self subtractFrom: Arg];
+    return Theresult;
 }
-
--(void)testIntCreationMatchesUnreducedComponentCreation
+-(WCSFraction*)multiplyBy: (WCSFraction*) Arg;
 {
-    //given
-    result = [[WCSFraction alloc] initWithNumerator:4 andDenominator:2];
-    target = [[WCSFraction alloc] initWithInteger:2];
-    // then
-    assertThat(result, is(equalTo(target)));
+    int a = [self numerator];
+    int b = [self denominator];
+    int c = [Arg numerator];
+    int d =  [Arg denominator];
+    int newDenominator = a*c;
+    int newNumerator = b*d;
+    WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
 }
-
--(void)testFractionCreationMatchesComponentCreation
+-(WCSFraction*)divideBy: (WCSFraction*) Arg;
 {
-    //given
-    result = [[WCSFraction alloc] initWithNumerator:2 andDenominator:1];
-    target = [[WCSFraction alloc] initWithFraction:frac_two];
-    // then
-    assertThat(result, is(equalTo(target)));
+    return[self multiplyBy:[Arg reciprocal]];
+    
 }
-
-
-
-- (void)testOnePlusOneEqualsTwo
+-(WCSFraction*)divideInto: (WCSFraction*) Arg;
 {
-    // given
-    result = [frac_one addTo:frac_one];
-    // then
-    assertThat(result, is(equalTo(frac_two)));
+    return  [Arg multiplyBy: [self reciprocal]];
+    
 }
-
-- (void)testOnePlusZeroEqualsOne
+-(WCSFraction*)reduced: (WCSFraction*) Arg;
 {
-    // given
-    result = [frac_one addTo:frac_zero];
-    // then
-    assertThat(result, is(equalTo(frac_one)));
-}
-
-- (void)testOneTimesZeroEqualsZero
-{
-    // given
-    result = [frac_one multiplyBy:frac_zero];
-    // then
-    assertThat(result, is(equalTo(frac_zero)));
-}
-
-- (void)testAdditionLeavesSummandsUnaltered
-{
-    // given
-    result = [frac_one multiplyBy:frac_zero];
-    // then
-    assertThat(frac_one, isNot(equalTo(frac_zero)));
-}
-
--(void)testReciprocalOfOneHalfIsTwo
-{
-    //given
-    target = [[WCSFraction alloc] initWithNumerator:1 andDenominator:2];
-    target = [target reciprocal];
-    // then
-    assertThat(target, is(equalTo(frac_two)));
-}
-
--(void)testNegativeOfNegOneIsOne
-{
-    //given
-    target = [[WCSFraction alloc] initWithNumerator:-1 andDenominator:1];
-    target = [target negative];
-    // then
-    assertThat(target, is(equalTo(frac_one)));
-}
-
--(void)testNegativeOfOneOverNegOneIsOne
-{
-    //given
-    target = [[WCSFraction alloc] initWithNumerator:1 andDenominator:-1];
-    target = [target negative];
-    // then
-    assertThat(target, is(equalTo(frac_one)));
-}
-
--(void)testFractionMinusSelfIsZero
-{
-    //given
-    result = [frac_two minus:frac_two];
-    // then
-    assertThat(result, is(equalTo(frac_zero)));
-}
-
--(void)testSubtractionIsAntiCommutative
-{
-    //given
-    LHS = [[WCSFraction alloc] initWithNumerator:2 andDenominator:7];
-    RHS = [[WCSFraction alloc] initWithNumerator:3 andDenominator:5];
-    target = [[LHS minus:RHS] negative];
-    result = [LHS subtractFrom:RHS];
-    // then
-    assertThat(result, is(equalTo(target)));
+    int x = [self numerator];
+    int y = [self denominator];
+    int d = GCD (x, y);
+    int newNumerator = x/d;
+    int newDenominator = x/d;
+    WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
+    
     
 }
 
--(void)testDivisionIsAntiCommutative
-{
-    //given
-    LHS = [[WCSFraction alloc] initWithNumerator:2 andDenominator:7];
-    RHS = [[WCSFraction alloc] initWithNumerator:3 andDenominator:5];
-    target = [[LHS divideBy:RHS] reciprocal];
-    result = [LHS divideInto:RHS];
-    // then
-    assertThat(result, is(equalTo(target)));
-}
 
--(void)testNegationIsOrderTwo
-{
-    //given
-    result = [[frac_two negative] negative];
-    // then
-    assertThat(result, is(equalTo(frac_two)));
-}
-
--(void)testInversionIsOrderTwo
-{
-    //given
-    result = [[frac_two reciprocal] reciprocal];
-    // then
-    assertThat(result, is(equalTo(frac_two)));
-}
-
--(void)testInversionAndNegationCommute
-{
-    //given
-    result = [[frac_two reciprocal] negative];
-    target = [[frac_two negative] reciprocal];
-    // then
-    assertThat(result, is(equalTo(target)));
-}
-
--(void)testDescriptionOfZeroIsZero
-{
-    assertThat([frac_zero description], is(@"0"));
-}
-
--(void)testDescriptionOfWeirdOneIsStillOne
-{
-    target = [[WCSFraction alloc] initWithNumerator:42 andDenominator:42];
-    assertThat([target description], is(@"1"));
-}
-
--(void)testDescriptionOfFractionIsFractional
-{
-    target = [frac_two reciprocal];
-    assertThat([target description], is(@"1/2"));
-}
-
--(void)testDescriptionOfIntegerIsIntegral
-{
-    target = [[WCSFraction alloc] initWithNumerator:3 andDenominator:1];
-    assertThat([target description], is(@"3"));
-}
-
--(void)testDescriptionOfFractionIsReduced
-{
-    target = [[WCSFraction alloc] initWithNumerator:14 andDenominator:21];
-    assertThat([target description], is(@"2/3"));
-    
-}
--(void)testDescriptionErrorDoesNotLookFractional
-{
-    target = [[WCSFraction alloc] initWithNumerator:9 andDenominator:0];
-    assertThat([target description], isNot(containsString(@"/")));
-}
 
 @end
+
+int GCD( int x, int y)
+{
+    printf("running init method\n");
+    
+    return NULL;
+    
+}
+

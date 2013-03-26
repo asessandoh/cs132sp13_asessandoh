@@ -99,5 +99,8 @@
 
 int GCD( int x, int y)
 {
-    //printf
+    [self doesNotRecognizeSelector:_cmd];// printf("running init method\n);
+    [self release];
+    return nil;
+
 }
