@@ -125,11 +125,11 @@ int gcd(int a, int b)
 }
 -(WCSFraction*)reduced: (WCSFraction*) Arg;
 {
-    int x = [self numerator];
-    int y = [self denominator];
-    int d = GCD (x, y);
-    int newNumerator = x/d;
-    int newDenominator = x/d;
+    int a = [self numerator];
+    int b = [self denominator];
+    int d = GCD (a,b);
+    int newNumerator = a/d;
+    int newDenominator = b/d;
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
     
