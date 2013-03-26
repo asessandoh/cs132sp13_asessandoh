@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+
+int gcd(int a, int b);
+
 @interface WCSFraction : NSObject
 
 @property (assign) int numerator;
@@ -35,4 +39,3 @@ andDenominator:(int) Dem;
 
 
 @end
-int GCD(int x, int y);
