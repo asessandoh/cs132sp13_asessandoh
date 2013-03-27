@@ -14,10 +14,10 @@ int gcd(int a, int b);
 
 @interface WCSFraction : NSObject
 
-@property (assign) int numerator;
-@property (assign) int denominator;
+@property (readonly,assign) int numerator;
+@property (readonly,assign) int denominator;
 
--(void) initWithNumretor:(int) Num
+-(id) initWithNumretor:(int) Num
 andDenominator:(int) Dem;
 
 -(void) initWithFraction: (WCSFraction*) Arg;

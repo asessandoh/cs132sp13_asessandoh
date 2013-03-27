@@ -61,8 +61,9 @@ int gcd(int a, int b)
 
 -(id)init
 {
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
+    printf("running init method\n");
+    
+    return NULL ;
 }
 
 -(id) Description
