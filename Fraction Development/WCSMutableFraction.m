@@ -10,4 +10,22 @@
 
 @implementation WCSMutableFraction
 
+-(void) setNumerator: Num andDenominator: Dem;
+{
+    
+}
+
+- (void) modifyByInverting;
+{
+    
+}
+
+-(void) modifyByNegative;
+{
+    
+}
+
+
+
 @end
+

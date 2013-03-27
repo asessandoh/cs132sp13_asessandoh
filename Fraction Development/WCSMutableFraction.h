@@ -10,4 +10,11 @@
 
 @interface WCSMutableFraction : WCSFraction
 
+@property (assign) int numerator;
+@property  (assign) int denominator;
+
+-(void) setNumerator:(int) Num andDenominator:(int) Dem;
+-(void) modifyByInverting;
+-(void) modifyByNegative;
+
 @end
