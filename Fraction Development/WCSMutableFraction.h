@@ -8,6 +8,8 @@
 
 #import "WCSFraction.h"
 
+int GCD(int A,int B);
+
 @interface WCSMutableFraction : WCSFraction
 
 @property (assign) int numerator;

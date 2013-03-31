@@ -10,8 +10,20 @@
 
 @implementation WCSMutableFraction
 
--(void) setNumerator: Num andDenominator: Dem;
+-(void) setNumerator: (int) A andDenominator:(int) B ;
 {
+    int D = GCD(A,B);
+    int a = A/D;
+    int b = B/D;
+    
+    if (B<0) {
+        
+        int c = -1;
+        
+        int NewNum = a * c;
+        int NewDenom = b *c;
+        
+    }
     
 }
 
