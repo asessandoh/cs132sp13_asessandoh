@@ -16,5 +16,6 @@
 -(void) setNumerator:(int) Num andDenominator:(int) Dem;
 -(void) modifyByInverting;
 -(void) modifyByNegative;
-
+-(void) modifyByAdding;
+-(void) modifyByMultiplying;
 @end

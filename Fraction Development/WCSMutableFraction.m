@@ -25,6 +25,15 @@
     
 }
 
+-(void) modifyByAdding;
+{
+    
+}
+
+-(void) modifyByMultiplying;
+{
+    
+}
 
 
 @end

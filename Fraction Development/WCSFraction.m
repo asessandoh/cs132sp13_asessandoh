@@ -16,12 +16,17 @@ int gcd(int a, int b)
 }
 
 
+
 @implementation WCSFraction
 
 
 @synthesize numerator;
 @synthesize denominator;
 
+-(void)initWithInteger:(int) TheInt;
+{
+    [self initWithNumerator: TheInt andDenominator: denominator ];
+}
 
 -(NSComparisonResult) compareToFraction:(WCSFraction*) otherFraction
 {
@@ -92,7 +97,7 @@ int gcd(int a, int b)
 }
 -(WCSFraction*)sumwith: (WCSFraction*) Arg;
 {
-    
+    return nil;
 }
 -(WCSFraction*)subtractFrom: (WCSFraction*) Arg;
 {
@@ -128,12 +133,23 @@ int gcd(int a, int b)
 {
     int a = [self numerator];
     int b = [self denominator];
-    int d = GCD (a,b);
+    int d = gcd (a,b);
     int newNumerator = a/d;
     int newDenominator = b/d;
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
     
+    if (newDenominator < 0)
+    {
+        int c = -1;
+        
+        int PosNumerator = newNumerator * c;
+        int PosDenominator = newDenominator *c;
+        
+        WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+        return Theresult;
+        
+    }
     
 }
 

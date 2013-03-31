@@ -17,7 +17,7 @@ int gcd(int a, int b);
 @property (readonly,assign) int numerator;
 @property (readonly,assign) int denominator;
 
--(id) initWithNumretor:(int) Num
+-(id) initWithNumerator:(int) Num
 andDenominator:(int) Dem;
 
 -(void) initWithFraction: (WCSFraction*) Arg;
