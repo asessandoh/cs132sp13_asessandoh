@@ -119,6 +119,19 @@ int gcd(int a, int b)
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
 }
+
+-(WCSFraction*)add:(WCSFraction *)Arg;
+{
+    int a = [self numerator];
+    int b = [self denominator];
+    int c = [Arg numerator];
+    int d =  [Arg denominator];
+    int newDenominator = (a*d) / (b*d);
+    int newNumerator = (b*c) / (b*d);
+    WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
+}
+
 -(WCSFraction*)divideBy: (WCSFraction*) Arg;
 {
     return[self multiplyBy:[Arg reciprocal]];

@@ -37,14 +37,24 @@
     
 }
 
--(void) modifyByAdding;
+-(void) modifyByAdding: Arg;
 {
-    
+    int a = [self numerator];
+    int b = [self denominator];
+    int c = [Arg numerator];
+    int d =  [Arg denominator];
+    int newDenominator = (a*d) / (b*d);
+    int newNumerator = (b*c) / (b*d);
 }
 
--(void) modifyByMultiplying;
+-(void) modifyByMultiplying: Arg;
 {
-    
+    int a = [self numerator];
+    int b = [self denominator];
+    int c = [Arg numerator];
+    int d =  [Arg denominator];
+    int newDenominator = a*c;
+    int newNumerator = b*d;
 }
 
 
