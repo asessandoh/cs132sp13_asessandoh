@@ -10,6 +10,9 @@
 
 @implementation WCSMutableFraction
 
+@synthesize numerator = _AOII_numerator;
+@synthesize denominator = _AOII_denominator;
+
 -(void) setNumerator: (int) A andDenominator:(int) B ;
 {
     int D = GCD(A,B);

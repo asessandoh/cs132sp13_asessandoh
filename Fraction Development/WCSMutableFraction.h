@@ -21,3 +21,4 @@ int GCD(int A,int B);
 -(void) modifyByAdding;
 -(void) modifyByMultiplying;
 @end
+
