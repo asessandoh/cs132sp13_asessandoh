@@ -19,14 +19,16 @@
     int a = A/D;
     int b = B/D;
     
-    if (B<0) {
+    if (b<0) {
         
         int c = -1;
         
-        int NewNum = a * c;
-        int NewDenom = b *c;
+        int Newa = a * c;
+        int Newb = b *c;
         
     }
+    [self setNumerator:a];
+    [self setDenominator:b];
     
 }
 

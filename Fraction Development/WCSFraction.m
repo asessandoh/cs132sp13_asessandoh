@@ -23,9 +23,11 @@ int gcd(int a, int b)
 @synthesize numerator;
 @synthesize denominator;
 
--(void)initWithInteger:(int) TheInt;
+-(id)initWithInteger:(int) TheInt;
 {
-    [self initWithNumerator: TheInt andDenominator: denominator ];
+   return [self initWithNumerator: TheInt andDenominator: 1 ];
+    
+    
 }
 
 -(NSComparisonResult) compareToFraction:(WCSFraction*) otherFraction

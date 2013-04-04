@@ -8,7 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 int main(int argc, char *argv[])
 {
     return NSApplicationMain(argc, (const char **)argv);
+    
+    int oneThird = 1/3;
+    int oneHalf = 1/2;
+    int oneEight = 1/8;
+    
+    
+    
 }
