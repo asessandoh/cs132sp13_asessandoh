@@ -7,19 +7,29 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "WCSFraction.h"
+#import "WCSMutableFraction.h"
 
 int main(int argc, char *argv[])
 {
     return NSApplicationMain(argc, (const char **)argv);
     
-    int oneThird = 1/3;
-    int oneHalf = 1/2;
-    int oneEight = 1/8;
+    WCSFraction* oneThird ;
+    WCSFraction* oneHalf ;
+    WCSFraction* oneEight ;
     
-    int Result = oneThird - oneHalf;
+    WCSFraction* Result ;
     
-    NSLog(@"My code says that %d - %d is %d", oneThird, oneHalf, Result);
+   oneThird = [oneThird initWithNumerator:1 andDenominator:3];
+    oneHalf = [ oneHalf initWithNumerator:1 andDenominator:2];
     
+    Result = [oneThird minus:oneHalf];
+    
+    NSLog(@"the result is %d over %d",[Result numerator], [Result denominator]);
+    
+    
+
+    
+
     
 }
