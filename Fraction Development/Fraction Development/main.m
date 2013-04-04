@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
     int oneHalf = 1/2;
     int oneEight = 1/8;
     
+    int Result = oneThird - oneHalf;
+    
+    NSLog(@"My code says that %d - %d is %d", oneThird, oneHalf, Result);
     
     
 }
