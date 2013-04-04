@@ -19,7 +19,8 @@
     int a = A/D;
     int b = B/D;
     
-    if (b<0) {
+    if (b<0)
+    {
         
         int c = -1;
         
@@ -34,12 +35,26 @@
 
 - (void) modifyByInverting;
 {
+    int a = [self numerator];
+    int b = [self denominator];
+    int newNumerator = b;
+    int newDenominator = a;
+    
+    [self setNumerator:a];
+    [self setDenominator:b];
     
 }
 
 -(void) modifyByNegative;
 {
     
+    int a = [self numerator];
+    int b = [self denominator];
+    int newNumerator = 0 - a;
+    int newDenominator = 0 - b;
+    
+    [self setNumerator:a];
+    [self setDenominator:b];
 }
 
 -(void) modifyByAdding: Arg;
@@ -50,6 +65,10 @@
     int d =  [Arg denominator];
     int newDenominator = (a*d) / (b*d);
     int newNumerator = (b*c) / (b*d);
+    
+    [self setNumerator:a];
+    [self setDenominator:b];
+    
 }
 
 -(void) modifyByMultiplying: Arg;
@@ -60,6 +79,9 @@
     int d =  [Arg denominator];
     int newDenominator = a*c;
     int newNumerator = b*d;
+    
+    [self setNumerator:a];
+    [self setDenominator:b];
 }
 
 

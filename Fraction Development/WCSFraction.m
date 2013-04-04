@@ -128,8 +128,8 @@ int gcd(int a, int b)
     int b = [self denominator];
     int c = [Arg numerator];
     int d =  [Arg denominator];
-    int newDenominator = (a*d) / (b*d);
-    int newNumerator = (b*c) / (b*d);
+    int newDenominator = a*d + c*d;
+    int newNumerator = b*d;
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
 }

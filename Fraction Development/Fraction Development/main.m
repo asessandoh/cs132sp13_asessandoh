@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
     
     NSLog(@"Ans is %d over %d",[Ans numerator], [Ans denominator]);
     
-
+    
+return NSApplicationMain(argc, (const char **)argv);
     
 }
