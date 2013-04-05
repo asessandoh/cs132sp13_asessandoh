@@ -12,7 +12,7 @@
 
 int gcd(int a, int b);
 
-@interface WCSFraction : NSObject
+@interface WCSFraction : NSObject <NSCopying>
 
 @property (readonly,assign) int numerator;
 @property (readonly,assign) int denominator;
@@ -36,6 +36,6 @@ andDenominator:(int) Dem;
 -(WCSFraction*)divideBy:(WCSFraction*) Arg;
 -(WCSFraction*)divideInto:(WCSFraction*) Arg;
 -(WCSFraction*)reduced:(WCSFraction*) Arg;
-
+-(id) copyWithZone: (NSZone *) zone;
 
 @end

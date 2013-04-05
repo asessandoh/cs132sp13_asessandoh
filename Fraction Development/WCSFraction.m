@@ -30,6 +30,14 @@ int gcd(int a, int b)
     
 }
 
+-(id) copyWithZone: (NSZone *) zone
+{
+    WCSFraction* newfraction = nil;
+    newfraction = [[WCSFraction allocWithZone:zone]initWithNumerator:[self numerator] andDenominator:[self denominator]];
+    return 0;
+    
+}
+
 -(NSComparisonResult) compareToFraction:(WCSFraction*) otherFraction
 {
     //Common math trick:
@@ -161,10 +169,11 @@ int gcd(int a, int b)
         int PosNumerator = newNumerator * c;
         int PosDenominator = newDenominator *c;
         
-        WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+        WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:PosNumerator andDenominator:PosDenominator];
         return Theresult;
         
     }
+
     
 }
 

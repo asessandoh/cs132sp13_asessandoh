@@ -10,7 +10,7 @@
 
 int GCD(int A,int B);
 
-@interface WCSMutableFraction : WCSFraction
+@interface WCSMutableFraction : WCSFraction <NSCopying>
 
 @property (assign) int numerator;
 @property  (assign) int denominator;
@@ -20,5 +20,7 @@ int GCD(int A,int B);
 -(void) modifyByNegative;
 -(void) modifyByAdding;
 -(void) modifyByMultiplying;
+-(id) copyWithZone: (NSZone *) zone;
 @end
+
 

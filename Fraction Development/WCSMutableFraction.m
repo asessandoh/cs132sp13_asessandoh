@@ -8,7 +8,7 @@
 
 #import "WCSMutableFraction.h"
 
-@implementation WCSMutableFraction
+@implementation WCSMutableFraction 
 
 @synthesize numerator = _AOII_numerator;
 @synthesize denominator = _AOII_denominator;
@@ -84,6 +84,14 @@
     [self setDenominator:b];
 }
 
+-(id) copyWithZone: (NSZone *) zone
+{
+    WCSFraction* newfraction = nil;
+    newfraction = [[WCSFraction allocWithZone:zone]initWithNumerator:[self numerator] andDenominator:[self denominator]];
+    return 0;
+    
+    // newfraction = [[WCSFraction allocWithZone:zone]initWithFraction:self];
+}
 
 @end
 
