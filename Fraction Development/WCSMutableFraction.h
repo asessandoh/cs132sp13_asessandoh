@@ -18,8 +18,8 @@ int GCD(int A,int B);
 -(void) setNumerator:(int) Num andDenominator:(int) Dem;
 -(void) modifyByInverting;
 -(void) modifyByNegative;
--(void) modifyByAdding;
--(void) modifyByMultiplying;
+-(void) modifyByAdding:(WCSFraction*) Arg;
+-(void)modifyByMultiplying:(WCSFraction*) Arg;
 -(id) copyWithZone: (NSZone *) zone;
 @end
 

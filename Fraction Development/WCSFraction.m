@@ -20,9 +20,33 @@ int gcd(int a, int b)
 @implementation WCSFraction
 
 
-@synthesize numerator;
-@synthesize denominator;
+@synthesize numerator =  _initializedNumerator;
+@synthesize denominator =  _initializedDenominator;
 
+-(id) initWithNumerator:(int) Num
+         andDenominator:(int) Dem
+{
+    
+    int a = Num;
+    int b = Dem;
+    int newNumerator = a / gcd( a , b ) ;
+    int newDenominator = b / gcd( a , b ) ;
+    
+    if (newDenominator<0)
+    {
+        newDenominator = newDenominator*-1;
+        newNumerator = newNumerator*-1;
+    }
+    
+    
+    
+    self = [super init];
+    if (self) {
+        _initializedNumerator = newNumerator;
+        _initializedDenominator = newDenominator;
+    }
+    return self;
+}
 -(id)initWithInteger:(int) TheInt;
 {
    return [self initWithNumerator: TheInt andDenominator: 1 ];
@@ -76,16 +100,31 @@ int gcd(int a, int b)
 
 -(id)init
 {
-    printf("running init method\n");
+    self = [self initWithNumerator:1 andDenominator:1];
     
-    return NULL ;
+    return self ;
 }
 
 -(id) Description
 {
-    printf("running init method\n");
+    if([self denominator] == 1)
+    {
+        return [NSString stringWithFormat: @"%d" , [self numerator]];
+    }
+    else
+        
+        if([self denominator] == 0)
+        {
+            return [NSString stringWithFormat: @"ERROR" ];
+        }
+        else
+            
+            
+            
+        {
+            return [NSString stringWithFormat: @"%d/%d" , [self numerator] , [self denominator]];
+        }
     
-    return NULL ;
 }
 -(WCSFraction*)negative
 {
@@ -105,10 +144,10 @@ int gcd(int a, int b)
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
 }
--(WCSFraction*)sumwith: (WCSFraction*) Arg;
-{
-    return nil;
-}
+//-(WCSFraction*)sumwith: (WCSFraction*) Arg;
+//{
+    
+//}
 -(WCSFraction*)subtractFrom: (WCSFraction*) Arg;
 {
     return[self add: [Arg negative]];

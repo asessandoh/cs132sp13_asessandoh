@@ -27,6 +27,9 @@
         int Newa = a * c;
         int Newb = b *c;
         
+        [self setNumerator:Newa];
+        [self setDenominator:Newb];
+
     }
     [self setNumerator:a];
     [self setDenominator:b];
@@ -37,11 +40,9 @@
 {
     int a = [self numerator];
     int b = [self denominator];
-    int newNumerator = b;
-    int newDenominator = a;
     
-    [self setNumerator:a];
-    [self setDenominator:b];
+    [self setNumerator:b];
+    [self setDenominator:a];
     
 }
 
@@ -51,13 +52,13 @@
     int a = [self numerator];
     int b = [self denominator];
     int newNumerator = 0 - a;
-    int newDenominator = 0 - b;
+    int newDenominator = b;
     
-    [self setNumerator:a];
-    [self setDenominator:b];
+    [self setNumerator:newNumerator];
+    [self setDenominator:newDenominator];
 }
 
--(void) modifyByAdding: Arg;
+-(void) modifyByAdding: (WCSFraction*)Arg;
 {
     int a = [self numerator];
     int b = [self denominator];
@@ -66,12 +67,12 @@
     int newDenominator = (a*d) / (b*d);
     int newNumerator = (b*c) / (b*d);
     
-    [self setNumerator:a];
-    [self setDenominator:b];
+    [self setNumerator:newNumerator];
+    [self setDenominator:newDenominator];
     
 }
 
--(void) modifyByMultiplying: Arg;
+-(void) modifyByMultiplying:(WCSFraction*) Arg;
 {
     int a = [self numerator];
     int b = [self denominator];
@@ -80,8 +81,8 @@
     int newDenominator = a*c;
     int newNumerator = b*d;
     
-    [self setNumerator:a];
-    [self setDenominator:b];
+    [self setNumerator:newNumerator];
+    [self setDenominator:newDenominator];
 }
 
 -(id) copyWithZone: (NSZone *) zone

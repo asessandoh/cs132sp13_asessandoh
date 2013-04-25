@@ -36,8 +36,8 @@ int main(int argc, char *argv[])
     
     [mutant setNumerator:5 andDenominator:8 ];
     
-    Theans = [mutant modifyByNegative: oneEight];
-    Ans = [ mutant modifyByAdding: fourhalves];
+    [mutant modifyByAdding:oneEight];
+    [ mutant modifyByAdding: fourhalves];
     
     NSLog(@"theans is %d over %d",[Theans numerator], [Theans denominator]);
     
