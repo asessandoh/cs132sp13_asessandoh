@@ -34,7 +34,6 @@
 -(void) pressKey:(char)theKey
 {
     
-    
     if(isADigit(theKey) == YES)
     {
         [self appendDigit:theKey] ;
