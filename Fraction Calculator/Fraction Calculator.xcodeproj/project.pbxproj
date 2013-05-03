@@ -17,6 +17,9 @@
 		BAE6CAF71734651300AA806F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE6CAD71734651200AA806F /* Cocoa.framework */; };
 		BAE6CAFF1734651300AA806F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAE6CAFD1734651300AA806F /* InfoPlist.strings */; };
 		BAE6CB021734651300AA806F /* Fraction_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6CB011734651300AA806F /* Fraction_CalculatorTests.m */; };
+		BAE6CB0D17346AC200AA806F /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6CB0C17346AC200AA806F /* Calculator.m */; };
+		BAE6CB1217346ADF00AA806F /* WCSFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6CB0F17346ADF00AA806F /* WCSFraction.m */; };
+		BAE6CB1317346ADF00AA806F /* WCSMutableFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6CB1117346ADF00AA806F /* WCSMutableFraction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,12 @@
 		BAE6CAFE1734651300AA806F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAE6CB001734651300AA806F /* Fraction_CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fraction_CalculatorTests.h; sourceTree = "<group>"; };
 		BAE6CB011734651300AA806F /* Fraction_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fraction_CalculatorTests.m; sourceTree = "<group>"; };
+		BAE6CB0B17346AAD00AA806F /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calculator.h; path = ../Calculator/Calculator.h; sourceTree = "<group>"; };
+		BAE6CB0C17346AC200AA806F /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calculator.m; path = ../Calculator/Calculator.m; sourceTree = "<group>"; };
+		BAE6CB0E17346ADF00AA806F /* WCSFraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCSFraction.h; path = "../Fraction Development/WCSFraction.h"; sourceTree = "<group>"; };
+		BAE6CB0F17346ADF00AA806F /* WCSFraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCSFraction.m; path = "../Fraction Development/WCSFraction.m"; sourceTree = "<group>"; };
+		BAE6CB1017346ADF00AA806F /* WCSMutableFraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCSMutableFraction.h; path = "../Fraction Development/WCSMutableFraction.h"; sourceTree = "<group>"; };
+		BAE6CB1117346ADF00AA806F /* WCSMutableFraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCSMutableFraction.m; path = "../Fraction Development/WCSMutableFraction.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +84,12 @@
 		BAE6CACB1734651200AA806F = {
 			isa = PBXGroup;
 			children = (
+				BAE6CB0C17346AC200AA806F /* Calculator.m */,
+				BAE6CB0B17346AAD00AA806F /* Calculator.h */,
+				BAE6CB0E17346ADF00AA806F /* WCSFraction.h */,
+				BAE6CB0F17346ADF00AA806F /* WCSFraction.m */,
+				BAE6CB1017346ADF00AA806F /* WCSMutableFraction.h */,
+				BAE6CB1117346ADF00AA806F /* WCSMutableFraction.m */,
 				BAE6CADD1734651200AA806F /* Fraction Calculator */,
 				BAE6CAFA1734651300AA806F /* Fraction CalculatorTests */,
 				BAE6CAD61734651200AA806F /* Frameworks */,
@@ -264,6 +279,9 @@
 			files = (
 				BAE6CAE41734651300AA806F /* main.m in Sources */,
 				BAE6CAEB1734651300AA806F /* WCSAppDelegate.m in Sources */,
+				BAE6CB0D17346AC200AA806F /* Calculator.m in Sources */,
+				BAE6CB1217346ADF00AA806F /* WCSFraction.m in Sources */,
+				BAE6CB1317346ADF00AA806F /* WCSMutableFraction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
