@@ -47,10 +47,9 @@ int gcd(int a, int b)
     }
     return self;
 }
--(id)initWithInteger:(int) TheInt;
+-(id)initWithInteger:(int) TheInt
 {
    return [self initWithNumerator: TheInt andDenominator: 1 ];
-    
     
 }
 
@@ -118,7 +117,7 @@ int gcd(int a, int b)
         return answer ;
     }
 }
--(id) initWithFraction: (WCSFraction*) Arg;
+-(id) initWithFraction: (WCSFraction*) Arg
 {
     WCSFraction* SomeFraction;
     

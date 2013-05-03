@@ -21,7 +21,7 @@ int gcd(int a, int b);
          andDenominator:(int) Dem;
 
 -(id) initWithFraction: (WCSFraction*) Arg;
-
+-(id) initWithInteger:(int) TheInt;
 
 -(float) floatValue;
 

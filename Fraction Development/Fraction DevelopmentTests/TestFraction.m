@@ -43,9 +43,9 @@
 - (void)setUp
 {
     [super setUp];
-    frac_two = [[WCSFraction alloc] initWithInteger:2];
-    frac_one = [[WCSFraction* alloc] initWithInteger:1];
-    frac_zero = [[WCSFraction* alloc] initWithInteger:0];
+    frac_two = [[WCSFraction alloc] initWithInteger: 2];
+    frac_one = [[WCSFraction alloc] initWithInteger:1];
+    frac_zero = [[WCSFraction alloc] initWithInteger:0];
 }
 
 - (void)tearDown
@@ -107,7 +107,7 @@
 - (void)testOnePlusOneEqualsTwo
 {
     // given
-    result = [frac_one addTo:frac_one];
+    result = [frac_one add:frac_one];
     // then
     assertThat(result, is(equalTo(frac_two)));
 }
@@ -115,7 +115,7 @@
 - (void)testOnePlusZeroEqualsOne
 {
     // given
-    result = [frac_one addTo:frac_zero];
+    result = [frac_one add:frac_zero];
     // then
     assertThat(result, is(equalTo(frac_one)));
 }

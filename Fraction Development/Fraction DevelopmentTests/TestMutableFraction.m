@@ -142,7 +142,7 @@
     [sut setNumerator:-2 andDenominator:1];
     assertThat(sut, isNot(equalTo(frac_two)));
     //when
-    [sut modifyByNegating];
+    [sut negative];
     //then
     assertThat(sut, is(equalTo(frac_two)));
 }
