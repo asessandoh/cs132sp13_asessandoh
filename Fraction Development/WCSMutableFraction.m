@@ -15,7 +15,7 @@
 
 -(void) setNumerator: (int) A andDenominator:(int) B ;
 {
-    int D = GCD(A,B);
+    int D = gcd(A,B);
     int a = A/D;
     int b = B/D;
     

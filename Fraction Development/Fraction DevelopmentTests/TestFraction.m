@@ -44,8 +44,8 @@
 {
     [super setUp];
     frac_two = [[WCSFraction alloc] initWithInteger:2];
-    frac_one = [[WCSFraction alloc] initWithInteger:1];
-    frac_zero = [[WCSFraction alloc] initWithInteger:0];
+    frac_one = [[WCSFraction* alloc] initWithInteger:1];
+    frac_zero = [[WCSFraction* alloc] initWithInteger:0];
 }
 
 - (void)tearDown
@@ -235,6 +235,7 @@
     target = [frac_two reciprocal];
     assertThat([target description], is(@"1/2"));
 }
+
 
 -(void)testDescriptionOfIntegerIsIntegral
 {

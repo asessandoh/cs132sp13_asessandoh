@@ -8,7 +8,7 @@
 
 #import "WCSFraction.h"
 
-int GCD(int A,int B);
+int gcd(int A,int B);
 
 @interface WCSMutableFraction : WCSFraction <NSCopying>
 

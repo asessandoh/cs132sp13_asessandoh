@@ -20,18 +20,18 @@ int gcd(int a, int b);
 -(id) initWithNumerator:(int)Num
          andDenominator:(int) Dem;
 
-//-(void) initWithFraction: (WCSFraction*) Arg;
+-(id) initWithFraction: (WCSFraction*) Arg;
 
 
-//-(float) floatvalue;
+-(float) floatValue;
 
 -(WCSFraction*)negative;
 -(WCSFraction*)reciprocal;
-//-(WCSFraction*)sumWith:(WCSFraction*) Arg;
+-(WCSFraction*)sumWith:(WCSFraction*) Arg;
 -(WCSFraction*)subtractFrom:(WCSFraction*) Arg;
 -(WCSFraction*)add:(WCSFraction*) Arg;
 -(WCSFraction*)minus:(WCSFraction*) Arg;
-//-(WCSFraction*)multiply:(WCSFraction*) Arg;
+-(WCSFraction*)multiply:(WCSFraction*) Arg;
 -(WCSFraction*)multiplyBy:(WCSFraction*) Arg;
 -(WCSFraction*)divideBy:(WCSFraction*) Arg;
 -(WCSFraction*)divideInto:(WCSFraction*) Arg;

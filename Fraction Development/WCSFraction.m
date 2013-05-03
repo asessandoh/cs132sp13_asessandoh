@@ -105,6 +105,28 @@ int gcd(int a, int b)
     return self ;
 }
 
+-(float)floatValue
+{
+    if([self denominator]==0)
+    {
+        return 0;
+    }
+    else
+    {
+        float answer = [self numerator]/[self denominator];
+
+        return answer ;
+    }
+}
+-(id) initWithFraction: (WCSFraction*) Arg;
+{
+    WCSFraction* SomeFraction;
+    
+    SomeFraction = [[WCSFraction alloc] initWithNumerator:[SomeFraction numerator] andDenominator:[SomeFraction denominator]];
+    
+    return SomeFraction;
+}
+
 -(id) Description
 {
     if([self denominator] == 1)
@@ -144,10 +166,10 @@ int gcd(int a, int b)
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
 }
-//-(WCSFraction*)sumwith: (WCSFraction*) Arg;
-//{
-    
-//}
+-(WCSFraction*)sumWith:(WCSFraction*) Arg;
+{
+    return [Arg add:self];
+}
 -(WCSFraction*)subtractFrom: (WCSFraction*) Arg;
 {
     return[self add: [Arg negative]];
@@ -166,6 +188,14 @@ int gcd(int a, int b)
     int newDenominator = a*c;
     int newNumerator = b*d;
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    return Theresult;
+}
+
+-(WCSFraction*)multiply:(WCSFraction*) Arg
+{
+    WCSFraction* Theresult;
+    
+    Theresult = [Arg multiplyBy:self];
     return Theresult;
 }
 
