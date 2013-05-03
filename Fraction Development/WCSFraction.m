@@ -68,9 +68,10 @@ int gcd(int a, int b)
     //   Do compare their difference to zero :  a-b vs 0
     //   It is often easiest to determine whether
     //    a value is postive, negative, or zero
+    WCSFraction* diff = [self minus:otherFraction];
+    int difference = [diff numerator];
     
-    int difference = [[self minus: otherFraction] numerator];
-    
+    NSLog(@"Comparing %@ (%d/%d) to %@ (%d/%d), diff is %@", self, [self numerator], [self denominator], otherFraction, [otherFraction numerator], [otherFraction denominator], diff);
     if(difference > 0) return NSOrderedDescending; // self > other
     if(difference < 0) return NSOrderedAscending; // self < other
     if(difference == 0) return NSOrderedSame; //self == other
@@ -119,14 +120,10 @@ int gcd(int a, int b)
 }
 -(id) initWithFraction: (WCSFraction*) Arg
 {
-    WCSFraction* SomeFraction;
-    
-    SomeFraction = [[WCSFraction alloc] initWithNumerator:[SomeFraction numerator] andDenominator:[SomeFraction denominator]];
-    
-    return SomeFraction;
-}
+    return [self initWithNumerator:[Arg numerator] andDenominator:[Arg denominator]];
+    }
 
--(id) Description
+-(id) description
 {
     if([self denominator] == 1)
     {
@@ -152,8 +149,9 @@ int gcd(int a, int b)
     int a = [self numerator];
     int b = [self denominator];
     int newNumerator = 0 - a;
-    int newDenominator = 0 - b;
+    int newDenominator =  b;
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
+    NSLog(@"The negative of %@ is %@?\n\n", self, Theresult);
     return Theresult;
 }
 -(WCSFraction*)reciprocal
@@ -175,7 +173,7 @@ int gcd(int a, int b)
 }
 -(WCSFraction*)minus: (WCSFraction*) Arg;
 {
-    WCSFraction* Theresult = [self subtractFrom: Arg];
+    WCSFraction* Theresult = [Arg subtractFrom: self];
     return Theresult;
 }
 -(WCSFraction*)multiplyBy: (WCSFraction*) Arg;
@@ -184,8 +182,8 @@ int gcd(int a, int b)
     int b = [self denominator];
     int c = [Arg numerator];
     int d =  [Arg denominator];
-    int newDenominator = a*c;
-    int newNumerator = b*d;
+    int newDenominator = b*d;
+    int newNumerator = a*c;
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
 }
@@ -196,6 +194,7 @@ int gcd(int a, int b)
     
     Theresult = [Arg multiplyBy:self];
     return Theresult;
+    
 }
 
 -(WCSFraction*)add:(WCSFraction *)Arg;
@@ -204,8 +203,8 @@ int gcd(int a, int b)
     int b = [self denominator];
     int c = [Arg numerator];
     int d =  [Arg denominator];
-    int newDenominator = a*d + c*d;
-    int newNumerator = b*d;
+    int newNumerator = a*d + c*b;
+    int newDenominator = b*d;
     WCSFraction* Theresult = [[WCSFraction alloc]initWithNumerator:newNumerator andDenominator:newDenominator];
     return Theresult;
 }

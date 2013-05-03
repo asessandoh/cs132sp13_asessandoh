@@ -64,8 +64,8 @@
     int b = [self denominator];
     int c = [Arg numerator];
     int d =  [Arg denominator];
-    int newDenominator = (a*d) / (b*d);
-    int newNumerator = (b*c) / (b*d);
+    int newNumerator = a*d + c*b;
+    int newDenominator = b*d;
     
     [self setNumerator:newNumerator];
     [self setDenominator:newDenominator];
@@ -78,8 +78,8 @@
     int b = [self denominator];
     int c = [Arg numerator];
     int d =  [Arg denominator];
-    int newDenominator = a*c;
-    int newNumerator = b*d;
+    int newDenominator = b*d;
+    int newNumerator = a*c;
     
     [self setNumerator:newNumerator];
     [self setDenominator:newDenominator];

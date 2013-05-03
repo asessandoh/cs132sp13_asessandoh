@@ -23,6 +23,7 @@ int gcd(int a, int b);
 -(id) initWithFraction: (WCSFraction*) Arg;
 -(id) initWithInteger:(int) TheInt;
 
+
 -(float) floatValue;
 
 -(WCSFraction*)negative;
