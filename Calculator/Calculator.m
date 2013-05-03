@@ -4,232 +4,208 @@
 @implementation Calculator
 
 
-
 - (id)init
 {
     self = [super init];
     if (self)
     {
-        //Set up initial calculator conditions here
-        
-        [self clearaccumulator];
-        [self clearscreen];
-        [self clearoperation];
-        
+        [self clearScreen];
+        [self clearAccumulator];
+        [self clearOperation];
     }
     return self;
 }
--(void) pressKey: (char ) pressKey
+-(void)clearScreen
 {
-
-    if (isADigit(pressKey)){
-        
-        [self appendDigit:pressKey];
-        
-       
-    }
-    else if(isClearScreenKey(pressKey)) {
-        
-        [self clearscreen];
-        
-    }
-    else if(isclearaccumulator(pressKey)){
-        
-        [self clearaccumulator];
-        
-    }
-    else if(isclearoperation(pressKey)){
-        
-        [self clearoperation];
-        
-    }
-    else if(isresultkey(pressKey)) {
+    [self setNumberOnScreen:0] ;
+}
+-(void)clearAccumulator
+{
+    [self setNumberAccumulated:0] ;
+}
+-(void)clearOperation
+{
+    [self setOperatingPending:'?'] ;
+}
+-(NSString*) description
+{
+    return [NSString stringWithFormat:@"Calculator with %d on screen.", [self numberOnScreen ]];
+}
+-(void) pressKey:(char)theKey
+{
     
-        [self ComputeAndDisplayResult];
-        
+    
+    if(isADigit(theKey) == YES)
+    {
+        [self appendDigit:theKey] ;
     }
-    else if(isarithmeticallkey(pressKey)) {
-        
-        [self arithmeticallkey:pressKey];
-        [self registerarithmetic:pressKey];
-        
-    }
-    else if (isclearallkey(pressKey)) {
-        
-        [self clearallkey];
-        
-    }else{
-        
-        NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)", pressKey, NSStringFromSelector(_cmd), self, self);
+    
+    else
+        if(isClearScreenKey(theKey))
+        {
+            [self clearScreen] ;
+        }
+    
+        else
+            if(isArithmeticAllKey(theKey))
+            {
+                [self registerArithmetic:theKey] ;
+            }
+            else
+                if (isClearAllKey(theKey))
+                {
+                    [self clearOperation] ;
+                    [self clearScreen] ;
+                    [self clearOperation] ;
+                }
+                else
+                    if(isResultKey(theKey))
+                    {
+                        [self computeAndDisplayResult];
+                    }
+    
+                    else
+                    {
+                        NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)", theKey, NSStringFromSelector(_cmd), self, self);
+                    }
     
     return;
-    }
 }
--(void) appendDigit:(char)NewDigit
+-(void) appendDigit: (char) theDigit
 {
-    [self setNumberOnScreen:([self numberOnScreen] *10 + NewDigit - '0')];
+    int old =[self numberOnScreen] ;
+    [ self setNumberOnScreen : old*10+(theDigit-'0') ] ;
 }
-
--(void) clearscreen
+-(void) registerArithmetic:(char)theOperator
 {
-   [self setNumberOnScreen:0]; 
+    [self computeAndDisplayResult] ;
+    [self setNumberAccumulated : [self numberOnScreen]] ;
+    [self clearScreen] ;
+    [self setOperatingPending:theOperator] ;
 }
-
--(void)clearallkey
+-(void) computeAndDisplayResult
 {
-    [self setNumberAccumulated:0];
-    [self setNumberOnScreen:0];
-    [self setOperationPending:'?'];
-}
-
--(void) clearaccumulator
-{
-    [self setNumberAccumulated:0];
-}
-
--(void) clearoperation
-{ 
-    [self setOperationPending:'?'];
-}
-
--(void) registerarithmetic: (char) theoperator
-{
-    [ self setNumberAccumulated:[self numberOnScreen]];
     
-    [self clearscreen];
+    int LHS = [self numberAccumulated] ;
+    int RHS = [self numberOnScreen] ;
+    char operation = [self operatingPending] ;
+    int result = RHS ;
     
-    [self setOperationPending:theoperator];
-}
--(void)resultkey:(char)resultkey
-{
-    [self numberOnScreen]; 
-}
--(void)arithmeticallkey:(char)arithmetickey
-{
-    if (arithmetickey == '+') {
-        [self setNumberAccumulated:'+'];
-    }
-    else if (arithmetickey == '-'){
-        [self setNumberAccumulated:'-'];
-    }
-    else if (arithmetickey == '*'){
-        [self setNumberAccumulated:'*'];
-    }
-    else if (arithmetickey == '/'){
-        [self setNumberAccumulated:'/'];
-    }
-    else if (arithmetickey == '%'){
-        [self setNumberAccumulated:'%'];
-    }
-        
-}
-
-
--(void)ComputeAndDisplayResult
-{
-    char op;
-    int lhs;
-    int rhs;
-    int result;
-    rhs = [self numberOnScreen];
-    lhs = [self numberAccumulated];
-    op =  [self operationPending];
-    switch(op)
+    switch (operation)
     {
         case '+':
-             result= lhs + rhs;
+            result = LHS + RHS;
             break;
-           
+            
         case '-':
-            result = lhs - rhs;
+            result = LHS - RHS;
             break;
             
         case '*':
-            result= lhs * rhs;
+            result = LHS * RHS;
             break;
             
         case '/':
-            result= lhs / rhs;
+            result = LHS / RHS;
             break;
             
         case '%':
-            result= lhs%rhs;
+            result = LHS % RHS;
             break;
             
-        default :
-            result = rhs;
+            
+        default:
             break;
+            
     }
     
-    [self setNumberOnScreen:result];
-    [self clearaccumulator];
-    [self clearoperation];
-}
-
-
-
--(NSString*) description
-{
-    return [NSString stringWithFormat:@"Calculator with %d on screen." , [self numberOnScreen] ];
+    
+    [self setNumberOnScreen : result] ;
+    [self clearOperation] ;
+    [self clearAccumulator];
 }
 @end
-
-BOOL isADigit(char Digit)
+BOOL isADigit(char someChar)
 {
-    if( Digit > '9') return NO;
-    if( Digit < '0') return NO;
-    return YES;
+    int value = someChar-'0' ;
+    if(value <= 9 && value >= 0)
+    {
+        return YES;
+    }
+    else
+        return NO;
 }
-
-BOOL isClearScreenKey(char Clear)
+BOOL isClearScreenKey(char someChar)
 {
-    if(Clear == 'c') return YES;
-    if(Clear == 'C') return YES;
-    return NO;
+    switch (someChar)
+    {
+        case 'c':
+            return YES;
+            break;
+            
+        case 'C':
+            return YES;
+            break;
+            
+        default:
+            return NO ;
+    }
 }
-
-BOOL isclearaccumulator(char clearaccumalator)
+BOOL isClearAllKey(char someChar)
 {
-    if(clearaccumalator == 'c') return YES;
-    if(clearaccumalator == 'C') return YES;
-    return NO;
+    switch (someChar)
+    {
+        case 'a':
+            return YES;
+            break;
+            
+        case 'A':
+            return YES;
+            break;
+            
+        default:
+            return NO ;
+    }
 }
-
-BOOL isclearoperation(char clearoperation)
+BOOL isResultKey(char someChar)
 {
-    if(clearoperation == 'c') return YES;
-    if(clearoperation == 'C') return YES;
-    return NO;
+    switch (someChar)
+    {
+        case '=':
+            return YES;
+            break;
+            
+            
+        default:
+            return NO ;
+    }
 }
-
-
-BOOL isclearallkey( char clearall)
+BOOL isArithmeticAllKey(char someChar)
 {
-    if(clearall == 'a') return YES;
-    if(clearall == 'A') return YES;
-    return NO;
+    switch (someChar)
+    {
+        case '+':
+            return YES;
+            break;
+            
+        case '-':
+            return YES;
+            break;
+            
+        case '/':
+            return YES;
+            break;
+            
+            
+        case '*':
+            return YES;
+            break;
+            
+        case '%':
+            return YES;
+            break;
+            
+        default:
+            return NO ;
+    }
 }
-
-BOOL isresultkey( char result)
-{
-    if(result == '=') return YES;
-    return NO;
-}
-
-BOOL isarithmeticallkey( char arithmetickey)
-{
-    if(arithmetickey == '+') return YES;
-    if(arithmetickey == '-') return YES;
-    if(arithmetickey == '/') return YES;
-    if(arithmetickey == '%') return YES;
-    if(arithmetickey == '*') return YES;
-    return NO;
-}
-
-
-
-
-
-
-
-

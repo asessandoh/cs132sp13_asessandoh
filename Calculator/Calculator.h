@@ -1,30 +1,19 @@
 #import <Foundation/Foundation.h>
 
 @interface Calculator : NSObject
-
 @property (assign) int numberOnScreen;
 @property (assign) int numberAccumulated;
-@property (assign) char operationPending;
-
--(void) pressKey: (char) pressKey;
--(void) appendDigit: (char) NewDigit;
--(void) clearscreen;
--(void) clearallkey;
--(void) resultkey: (char) resultkey;
--(void) arithmeticallkey: (char) arithmetickey;
--(void) registerarithmetic: (char) theoperator;
--(void) clearaccumulator;
--(void) clearoperation;
--(void) ComputeAndDisplayResult;
+@property (assign) char operatingPending;
+-(void) pressKey: (char) theKey ;
+-(void) appendDigit: (char) theDigit ;
+-(void) registerArithmetic:(char)theOperator ;
+-(void) computeAndDisplayResult ;
+-(void)clearScreen ;
+-(void)clearAccumulator ;
+-(void)clearOperation ;
 @end
-
-//function declaration
-
-BOOL isADigit(char Digit);
-BOOL isClearScreenKey(char Clear);
-BOOL isclearallkey( char clearall);
-BOOL isresultkey(char result);
-BOOL isarithmeticallkey(char arithmetickey);
-BOOL isclearaccumulator(char clearaccumulator);
-BOOL isclearoperation(char clearoperation);
-
+BOOL isADigit(char someChar) ;
+BOOL isClearScreenKey(char someChar) ;
+BOOL isClearAllKey(char someChar) ;
+BOOL isResultKey(char someChar) ;
+BOOL isArithmeticAllKey(char someChar) ;
