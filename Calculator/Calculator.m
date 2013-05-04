@@ -1,5 +1,7 @@
 
 #import "Calculator.h"
+#import "WCSFraction.h"
+#import "WCSMutableFraction.h"
 
 @implementation Calculator
 
@@ -71,10 +73,25 @@
     
     return;
 }
+
+
 -(void) appendDigit: (char) theDigit
 {
-    int old =[self numberOnScreen] ;
-    [ self setNumberOnScreen : old*10+(theDigit-'0') ] ;
+    WCSMutableFraction* old =[self numberOnScreen] ;
+    switch ([self fractional])
+    {
+        case WCSPartTop:
+            [old setNumerator:[old numerator]*10+theKey];
+            break;
+            
+        case WCSPartBottom:
+            [old setNumerator:[old denominator]*10+theKey];
+            break;
+            
+        default:
+            NSLog(@"ERROR!");
+            break;
+    }
 }
 -(void) registerArithmetic:(char)theOperator
 {
@@ -86,44 +103,43 @@
 -(void) computeAndDisplayResult
 {
     
-    int LHS = [self numberAccumulated] ;
-    int RHS = [self numberOnScreen] ;
-    char operation = [self operatingPending] ;
-    int result = RHS ;
+    WCSMutableFraction* result = [self numberOnScreen];
+    WCSFraction* accumlated = [self numberAccumulated];    char operation = [self operatingPending] ;
+   
     
     switch (operation)
     {
         case '+':
-            result = LHS + RHS;
+		    [result modifyByAdding:accumlated];
+		    break;
+		case '-':
+            [result modifyByAdding:[accumlated negative]];
             break;
-            
-        case '-':
-            result = LHS - RHS;
+		case '*':
+            [result modifyByMultiplying:accumlated];
             break;
-            
-        case '*':
-            result = LHS * RHS;
-            break;
-            
         case '/':
-            result = LHS / RHS;
+            [result modifyByMultiplying:[accumlated reciprocal]];
             break;
-            
         case '%':
-            result = LHS % RHS;
+            switch ([self fractional]) {
+                case WCSPartTop:
+                    [self setFractional:WCSPartBottom];
+                    break;
+                case WCSPartBottom :
+                    [self setFractional:WCSPartTop];
+                default:
+                    NSLog(@"NOPES");
+                    break;
+                    
+            }
             break;
-            
-            
-        default:
+		default:
             break;
-            
-    }
-    
-    
-    [self setNumberOnScreen : result] ;
-    [self clearOperation] ;
+	}
+	[self setNumberOnScreen:result];
     [self clearAccumulator];
-}
+    [self clearOperation];}
 @end
 BOOL isADigit(char someChar)
 {
