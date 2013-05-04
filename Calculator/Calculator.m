@@ -31,7 +31,7 @@
 }
 -(NSString*) description
 {
-    return [NSString stringWithFormat:@"Calculator with %d on screen.", [self numberOnScreen ]];
+    return [NSString stringWithFormat:@"Calculator with %@ on screen.", [self numberOnScreen ]];
 }
 -(void) pressKey:(char)theKey
 {
@@ -81,11 +81,11 @@
     switch ([self fractional])
     {
         case WCSPartTop:
-            [old setNumerator:[old numerator]*10+theKey];
+            [old setNumerator:[old numerator]*10+ theDigit];
             break;
             
         case WCSPartBottom:
-            [old setNumerator:[old denominator]*10+theKey];
+            [old setNumerator:[old denominator]*10+ theDigit];
             break;
             
         default:

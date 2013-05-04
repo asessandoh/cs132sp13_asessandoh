@@ -1,9 +1,19 @@
 #import <Foundation/Foundation.h>
+#import "WCSFraction.h"
+#import "WCSMutableFraction.h"
+
+typedef enum {
+	WCSPartTop,
+	WCSPartBottom
+} WCSFractionPart;
+
 
 @interface Calculator : NSObject
-@property (assign) int numberOnScreen;
-@property (assign) int numberAccumulated;
+@property (assign) WCSMutableFraction* numberOnScreen;
+@property (assign) WCSFraction* numberAccumulated;
 @property (assign) char operatingPending;
+@property (assign) WCSFractionPart fractional;
+
 -(void) pressKey: (char) theKey ;
 -(void) appendDigit: (char) theDigit ;
 -(void) registerArithmetic:(char)theOperator ;
