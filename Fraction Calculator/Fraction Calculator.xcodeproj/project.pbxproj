@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA2E0ECD17384ED500E4AA66 /* Claculator Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2E0ECC17384ED500E4AA66 /* Claculator Test.m */; };
-		BA2E0ECF17384F6600E4AA66 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2E0ECE17384F6600E4AA66 /* Test.m */; };
+		BA2E0ED11738523800E4AA66 /* Calculator Test.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2E0ED01738523800E4AA66 /* Calculator Test.m */; };
 		BA7E938117384A6200FCDE43 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7E938017384A6200FCDE43 /* OCMockito.framework */; };
 		BA7E938317384B2600FCDE43 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7E938217384B2600FCDE43 /* OCHamcrest.framework */; };
 		BA7E938517384BDD00FCDE43 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA7E938217384B2600FCDE43 /* OCHamcrest.framework */; };
@@ -52,8 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BA2E0ECC17384ED500E4AA66 /* Claculator Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Claculator Test.m"; sourceTree = "<group>"; };
-		BA2E0ECE17384F6600E4AA66 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = "../Fraction Calculator/Test.m"; sourceTree = "<group>"; };
+		BA2E0ED01738523800E4AA66 /* Calculator Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Calculator Test.m"; sourceTree = "<group>"; };
 		BA7E938017384A6200FCDE43 /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockito.framework; sourceTree = "<group>"; };
 		BA7E938217384B2600FCDE43 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
 		BAE6CAD41734651200AA806F /* Fraction Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fraction Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,8 +175,7 @@
 		BAE6CAFA1734651300AA806F /* Fraction CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				BA2E0ECC17384ED500E4AA66 /* Claculator Test.m */,
-				BA2E0ECE17384F6600E4AA66 /* Test.m */,
+				BA2E0ED01738523800E4AA66 /* Calculator Test.m */,
 				BAE6CAFB1734651300AA806F /* Supporting Files */,
 			);
 			path = "Fraction CalculatorTests";
@@ -315,8 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA2E0ECD17384ED500E4AA66 /* Claculator Test.m in Sources */,
-				BA2E0ECF17384F6600E4AA66 /* Test.m in Sources */,
+				BA2E0ED11738523800E4AA66 /* Calculator Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

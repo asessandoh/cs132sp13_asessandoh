@@ -9,8 +9,8 @@ typedef enum {
 
 
 @interface Calculator : NSObject
-@property (assign) WCSMutableFraction* numberOnScreen;
-@property (assign) WCSFraction* numberAccumulated;
+@property (strong, readwrite) WCSMutableFraction* numberOnScreen;
+@property (strong, readwrite) WCSFraction* numberAccumulated;
 @property (assign) char operatingPending;
 @property (assign) WCSFractionPart fractional;
 
